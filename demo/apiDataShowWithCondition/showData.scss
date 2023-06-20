@@ -1,0 +1,32 @@
+.all-person {
+    display: flex;
+    flex-wrap: wrap;
+    .person {
+        position: relative;
+        margin-right: -10px;
+        width: 40px;
+        height: 40px;
+        border-radius: 100px;
+        background: #000;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .name {
+            position: absolute;
+            top: -100%;
+            left: -50%;
+            right: -50%;
+            width: fit-content;
+            background: #000;
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            display: none;
+            white-space: nowrap;
+        }
+        &:hover .name {
+            display: block;
+        }
+    }
+}

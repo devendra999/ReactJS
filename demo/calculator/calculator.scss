@@ -1,0 +1,36 @@
+.calc {
+    position: relative;
+    margin-top: 50px;
+    border: 2px solid #f4f4f4;
+    box-shadow: 0 0 5px #888888;
+    border-radius: 5px;
+    max-width: 500px;
+    input {
+        padding: 20px;
+        font-size: 24px;
+        font-weight: 700;
+        color: #fff;
+        background: #000;
+        width: 100%;
+        border-radius: 5px;
+        text-align: right;
+    }
+
+    .button {
+        display: flex;
+        flex-wrap: wrap;
+        button {
+            width: calc(100% / 4);
+            padding: 15px;
+            border: 1px solid;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 18px;
+            color: #a7a7a7;
+            &:hover {
+                color: #000;
+                background: #fff;
+            }
+        }
+    }
+}

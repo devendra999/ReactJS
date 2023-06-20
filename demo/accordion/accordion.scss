@@ -1,0 +1,32 @@
+.acc-wrapper {
+    position: relative;
+    max-width: 500px;
+    .single-acc {
+        position: relative;
+        overflow: hidden;
+        .acc-content {
+            position: relative;
+            background: #444444;
+            border-radius: 5px;
+            color: #fff;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0s ease-out;
+            .sdf {
+                padding: 20px;
+            }
+        }
+        &.active {
+            .acc-content {
+                max-height: 500px;
+                transition: max-height 0.5s ease-in;
+            }
+        }
+        .acc-title {
+            background: #f4f4f4;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        
+    }
+}

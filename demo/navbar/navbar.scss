@@ -1,0 +1,14 @@
+.nav-section {
+    background: #f4f4f4;
+    .mainmenu {
+        display: flex;
+        flex-wrap: wrap;
+        a {
+            padding: 13px 16px;
+            display: inline-block;
+            font-weight: 700;
+        }
+    }
+}
+
+
