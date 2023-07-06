@@ -1,0 +1,3 @@
+# child to parent data transfer progress
+  1. In parent component create function with parameter that function passed as a prope in child component tag
+  2. In child component get that function as a props and call that function with value
