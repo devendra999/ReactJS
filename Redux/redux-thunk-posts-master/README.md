@@ -1,3 +1,10 @@
+## What is Redux Thunk ?
+Dispatching thunk functions requires that the redux-thunk middleware has been added to the Redux store as part of its configuration.
+
+The Redux Toolkit configureStore API automatically adds the thunk middleware during store creation, so it should typically be available with no extra configuration needed.
+
+If you need to add the thunk middleware to a store manually, that can be done by passing the thunk middleware to applyMiddleware() as part of the setup process.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
