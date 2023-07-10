@@ -1,3 +1,56 @@
+# createContext process
+first createContext using createContext in app.js
+```json
+  import { createContext } from 'react';
+import ComA from './components/useContext/ComA';
+
+
+// create Context
+const FirstName = createContext();
+const LastName = createContext();
+
+
+
+function App() {
+  return (
+    <>
+
+      {/* useContext */}
+      <FirstName.Provider value={'Gies'}>
+        <LastName.Provider value={'port'}>
+          <ComA />
+        </LastName.Provider>
+      </FirstName.Provider>
+
+    </>
+  );
+}
+
+export default App;
+// useContext
+export { FirstName, LastName };
+```
+
+after that you can get that data directly in child component
+``` json
+  import React, { useContext } from 'react'
+import { FirstName, LastName } from '../../App'
+
+const ComC = () => {
+  const fname = useContext(FirstName);
+  const lname = useContext(LastName);
+
+  return (
+    <>
+      <h1>Hello {fname} {lname} </h1>
+    </>
+  )
+}
+
+export default ComC
+```
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
