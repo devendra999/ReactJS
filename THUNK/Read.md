@@ -82,8 +82,9 @@
     
     1. import Constant file
 
-    2. Code like this 
-        import axios from "axios";
+    2. Code like this
+  
+       import axios from "axios";
         import {
         GET_USERS_REQUEST,
         GET_USERS_SUCCESS,
