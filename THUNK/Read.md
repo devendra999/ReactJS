@@ -1,4 +1,5 @@
 1. Create store.js file
+   
         import { createStore, combineReducers, applyMiddleware } from "redux";
         import thunk from "redux-thunk"; // call thunk
         import { composeWithDevTools } from "redux-devtools-extension"; // redux devtools extention call
@@ -22,6 +23,8 @@
 
 
 2. Provide store in index.js file
+
+   
         import { Provider } from "react-redux";
         import store from "./store";
 
@@ -32,6 +35,8 @@
 
 
 3. Create Constant file
+
+
         export const GET_USERS_REQUEST = "GET_USERS_REQUEST";
         export const GET_USERS_SUCCESS = "GET_USERS_SUCCESS";
         export const GET_USERS_FAIL = "GET_USERS_FAIL ";
@@ -40,6 +45,7 @@
 
 
 4. Create Reducer file
+   
         import {
         GET_USERS_REQUEST,
         GET_USERS_SUCCESS,
@@ -64,6 +70,7 @@
 
 
 5. Reducer file call in store.js file
+   
         1. import { userReducer } from "./redux/reducers/userReducer"; // import reducer file
 
         2. In rootreducer call reducer Variable
@@ -72,6 +79,7 @@
           });
 
 6. Create Action file
+    
     1. import Constant file
 
     2. Code like this 
@@ -102,6 +110,7 @@
 
 
 7. When you use this File Edit
+    
         import React, { useState, useEffect } from "react";
         import { useDispatch, useSelector } from "react-redux";
         import User from "./components/User";
