@@ -1,3 +1,6 @@
+Youtube url : https://www.youtube.com/watch?v=f6HYLHrYpGs&list=PLgMICEduGwEzy6jqbR_yciKiGDsto74Dq
+Demo url : https://react-hooks-budget-calculator-application-recording.netlify.app/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
