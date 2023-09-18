@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.container {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.todo {
+  margin-top: 2em;
+}
+
+.all-list {
+  position: relative;
+}
+
+.all-list .single-item {
+  padding: 10px;
+  position: relative;
+  padding-right: 80px;
+}
+
+.all-list .single-item+.single-item {
+  border-top: 2px solid #f4f4f4;
+}
+
+.all-list .single-item .editItem {
+  right: 0;
+}
+
+.all-list .single-item .delteItem {
+  right: 36px;
+}
+
+.all-list .single-item .delteItem,
+.all-list .single-item .editItem {
+  position: absolute;
+  width: 40px;
+  height: 30px;
+  min-width: auto;
+}
