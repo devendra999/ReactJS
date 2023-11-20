@@ -1,0 +1,65 @@
+1. Create store
+    import { createStore, combineReducers, applyMiddleware } from "redux";
+    import { composeWithDevTools } from "redux-devtools-extension";
+    import thunk from "redux-thunk";
+    import { userReducer } from "./reducers/userReducer"; // reducer name
+
+    const rootReducer = combineReducers({
+        // here we can add multiple reducer
+        users: userReducer, // reducer name
+    });
+
+    const middlewere = [thunk]; // we can apply multiple middlewere like [thunk, blabla]
+
+    const store = createStore(
+        rootReducer,
+        composeWithDevTools(applyMiddleware(...middlewere))
+    );
+
+    export default store;
+    
+
+2. Bind store in index.js
+    import { Provider } from "react-redux";
+    import store from "./store";
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(
+    <Provider store={store}>
+        <App />
+    </Provider>
+    );
+
+3. create two folder actions and reducers.
+
+4. In action.js file
+    export const getUsers = () => async (dispatch) => {
+        try {
+            dispatch({ type: GET_USERS_REQUEST });
+            const { data } = await axios.get(
+            "https://jsonplaceholder.typicode.com/users"
+            );
+            dispatch({ type: GET_USERS, payload: data });
+        } catch (error) {
+            console.log(error);
+            dispatch({ type: GET_USERS_FAILED, payload: error.message });
+        }
+    };
+
+5. In reducer.js file
+    export const userReducer = (state = initialState, action) => {
+    switch (action.type) {
+
+        case GET_USERS:
+        return {
+            ...state,
+            loading: false,
+            users: action.payload,
+        };
+
+        default: return state;
+
+        }
+    };
+
+6. use main.js file using useSelector and useDispatch
