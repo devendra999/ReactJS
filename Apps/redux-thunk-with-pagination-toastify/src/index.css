@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+        background-color: #f1f1f1;
+}
+
+.container {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.load_page {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.load_page img {
+  width: 200px;
+}
+
+table {
+  width: 100%;
+}
+
+table thead td {
+  font-weight: 700;
+}
+
+table td {
+  font-size: 1.2rem;
+  padding: 0.6rem;
+      border-bottom: 1px solid;
+        border-color: #dcdcdc;
+}
+table td:first-child {
+  font-weight: 600;
+  background: #e3e3e3;
+}
+
+table tr:last-child td {
+  border-width: 0;
+}
+
+table thead {
+  background-color: #f2f2f2;
+}
+
+.header {
+  background: #4e4e4e;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header h2 {
+  color: #fff;
+}
+
+.header button,
+.header button:hover,
+.header button:focus {
+  border-color: #00e032;
+  color: #00e032;
+}
+
+.customBtn {
+  min-width: auto !important;
+  margin-right: 10px;
+}
+
+.customBtn.success, .customBtn.success:hover, .customBtn.success:focus {
+  background: #009304;
+  border-color: #009304;
+}
+
+.customBtn.danger, .customBtn.danger:hover, .customBtn.danger:focus {
+  background: #bc0000;
+  border-color: #bc0000;
+}
+
+h2.title {
+  margin-bottom: 1.5rem;
+  color: #3000bd;
+}
+
+.customModal .MuiBox-root {
+  border-radius: 10px;
+  border: 0;
+}
+
+.customModal #modal-modal-title {
+  color: #324bb8;
+  font-weight: 600;
+}
+
+.customModal #modal-modal-description {
+  margin-bottom: 30px;
+  font-size: 1.3rem;
+}
+
+.search-area fieldset {
+  border-color: #fff;
+}
+
+.search-area label,
+.search-area input {
+  color: #fff !important;
+}
