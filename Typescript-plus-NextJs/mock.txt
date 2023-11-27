@@ -1,0 +1,380 @@
+1. What are the features of React?
+   JSX: JSX is a syntax extension to JavaScript. It is used with React to describe what the user interface should look like. By using JSX, we can write HTML structures in the same file that contains JavaScript code.
+
+   Components: Components are the building blocks of any React application, and a single app usually consists of multiple components. It splits the user interface into independent, reusable parts that can be processed separately.
+
+   Virtual DOM: React keeps a lightweight representation of the real DOM in the memory, and that is known as the virtual DOM. When the state of an object changes, virtual DOM changes only that object in the real DOM, rather than updating all the objects.
+
+   One-way data-binding: React’s one-way data binding keeps everything modular and fast. A unidirectional data flow means that when designing a React app, you often nest child components within parent components.
+
+   High performance: React updates only those components that have changed, rather than updating all the components at once. This results in much faster web applications.
+
+2. What is the difference between the ES6 and ES5 standards?
+   variables 
+      //ES5
+      var age = 20;
+      //ES6
+      let days = 5;
+      const pi = 3; //immutable
+   
+   Define Objects
+      // ES5
+      var student = { fullName: fullName, age: age, gender: gender, city: city };
+      // ES6
+      var student = { fullName, age, gender, city };
+
+   Object Destructuring
+      var student = { fullName: 'John Moore', age: 25, gender: 'Male', city: 'London' };
+      //ES5
+      var fullName = student.fullName;
+      var age = student.age;
+      var gender = student.gender;
+      var city = student.city;
+      //ES6
+      var { fullName, age, gender, city } = student;
+
+   String Interpolation
+      In ES5, Concatenation operator is used to join strings. But ES6 has introduced Template Literal(`) which allows to perform the string interpolation in convenient way.
+      //ES5
+      var intro = 'Hello, I am ' + fullName + '. I am ' + age + ' years old ' + gender + ' student from ' + city + '.';
+      //ES6
+      var intro = `Hello, I am ${fullName}. I am ${age} years old ${gender} student from ${city}.`;
+
+   Arrow Function
+      ES6 has introduced the arrow function. It does not require the keyword function.
+      //ES5
+      function sayHello(name) {
+      console.log('Hello, ' + name);
+      }
+      //ES6
+      const sayHello = (name) => {
+      console.log(`Hello, ${name}`);
+      }
+
+3. What is an event in React?
+   An event is an action that a user or system may trigger, such as pressing a key, a mouse click, etc.
+
+4. Why is there a need for using keys in Lists?
+   A key is a unique identifier and it is used to identify which items have changed, been updated or deleted from the lists
+   It also helps to determine which components need to be re-rendered instead of re-rendering all the components every time. Therefore, it increases performance, as only the updated components are re-rendered
+
+5. What is the use of render() in React?
+   It is required for each component to have a render() function. This function returns the HTML, which is to be displayed in the component.
+
+6. What is a state in React?
+   The state is a built-in React object that is used to contain data or information about the component. The state in a component can change over time, and whenever it changes, the component re-renders.
+
+7. What are props in React?
+   Props are short for Properties. Props provide a way to pass data from one component to another component. Props are passed to the component in the same way as arguments are passed in a function.
+
+8. What is a higher-order component in React?
+   A component is a function that takes a component as a parameter and returna a component as output
+   A higher-order component acts as a container for other components. This helps to keep components simple and enables re-usability. They are generally used when multiple components have to use a common logic. 
+
+   higher-order component demo
+   -------------------------------
+      import './App.css';
+      import React, { useRef, useState } from 'react'
+      function App() {
+      return (
+         <div className="App">
+            <h1>HOC </h1>
+            <HOCRed cmp={Counter} />
+            <HOCGreen cmp={Counter} />
+            <HOCBlue cmp={Counter} />
+
+         </div>
+      );
+      }
+      function HOCRed(props)
+      {
+      return <h2 style={{backgroundColor:'red',width:100}}>Red<props.cmp /></h2>
+      }
+      function HOCGreen(props)
+      {
+      return <h2 style={{backgroundColor:'green',width:100}}>Grren<props.cmp /></h2>
+      }
+      function HOCBlue(props)
+      {
+      return <h2 style={{backgroundColor:'blue',width:100}}>blue <props.cmp /></h2>
+      }
+      function Counter()
+      {
+      const [count,setCount]=useState(0)
+      return<div>
+         <h3>{count}</h3>
+         <button onClick={()=>setCount(count+1)}>Update</button>
+      </div>
+      }
+
+      export default App;
+
+
+9. How can you embed two or more components into one?
+   To embed multiple components into one, we start by creating a parent component that serves as the container for the child components. This parent component will render the child components as its children.
+ 
+   const ParentComponent = () => {
+   return (
+      <div>
+         <ChildComponent1 />
+         <ChildComponent2 />
+         {/* Add more child components here */}
+      </div>
+   );
+   };
+
+   export default ParentComponent;
+
+10. What are the differences between class and functional components?
+   Class Components - State Can hold or manage state, Can work with all lifecycle methods, Complex as compared to the stateless component
+
+   Functional Components - State Cannot hold or manage state, Does not work with any lifecycle method, Simple and easy to understand
+
+11. What is Redux?
+   Redux is an open-source, JavaScript library used to manage the application state. React uses Redux to build the user interface.
+
+12. What are Pure Components?
+   Pure Components in React are the components which do not re-renders when the value of state and props has been updated with the same values.
+
+   Note : it is used only class component. for function component we used usememo hook
+
+   usememo hook example
+   ---------------------------
+      import './App.css';
+      import React, { useState } from 'react'
+      function App() {
+      const [count, setData] = useState(1)
+      const [item, setItem] = useState(20)
+
+      const newApple=React.useMemo(
+         function appleTime() {
+            console.warn("Hello")
+            return 100 * count;
+         }
+      ,[item])
+      return (
+         <div className="App">
+            <h1>Hooks in React {count}</h1>
+            {newApple}
+            <button onClick={() => setData(count + 1)}>Update State</button>
+            <button onClick={() => setItem(item * 10)}>Update State</button>
+
+         </div>
+      );
+      }
+
+      export default App;
+
+
+13. useRef hook ?
+   useref hook used to dom manupulate. it is used in case of emergancy
+
+   useref hook example
+   ---------------------------
+   import './App.css';
+   import React,{useRef} from 'react'
+   function App() {
+   let inputRef=useRef(null);
+   function controlInput()
+   {
+   //  inputRef.current.value="abc"
+   // inputRef.current.style.display="none"
+   inputRef.current.focus()
+   }
+   return (
+      <div className="App">
+         <h1>useRef in React </h1>
+         <input type="text" ref={inputRef} />
+         <button onClick={controlInput}>Handle Input</button>
+      </div>
+   );
+
+   }
+
+   export default App;
+
+
+14. forwardRef ?
+   forward ref is same as ref but it is used for child component.
+
+   forwardref example
+   ---------------------------
+   // parent component
+      import './App.css';
+      import React ,{useRef} from 'react'
+      import User from './User'
+      function App() {
+      let inputRef=useRef(null)
+      function updateInput()
+      {
+         inputRef.current.value="1000";
+         inputRef.current.style.color="red"
+         inputRef.current.focus()
+
+
+      }
+      return (
+         <div className="App">
+            <h1>forwardRef in React </h1>
+            <User ref={inputRef} />
+            <button onClick={updateInput} >Update Input Box</button>
+         </div>
+      );
+
+      }
+      export default App;
+
+   // child component
+      import React,{forwardRef} from 'react'
+      function User(props,ref)
+      {
+         return(
+            <div>
+                  <input ref={ref} type="text" />
+            </div>
+         )
+      }
+
+      export default forwardRef(User);
+
+15. controlled and uncontrolled component
+   controlled - A component that have a input form and these input fields controlled by react state.
+   uncontrolled - A component that have a input form and these input fields controlled by ref or dom.
+
+   controlled - Easier to debug, Less complex code, Considered a best practice	
+   uncontrolled - More difficult to debug,  More complex code, Considered an alternate approach
+
+   controlled component demo
+   ---------------------------------
+   const ControlledInput = ({ value, onChange }) => (
+   <input value={value} onChange={(e) => onChange(e.target.value)} />
+   );
+
+   const LoginForm = () => {
+   const [email, setEmail] = useState("");
+   const [password, setPassword] = useState("");
+
+   return (
+      <form>
+         <ControlledInput value={email} onChange={setEmail} placeholder="Email" />
+         <ControlledInput
+         value={password}
+         onChange={setPassword}
+         placeholder="Password"
+         />
+         <button>Submit</button>
+      </form>
+   );
+   };
+
+16. What is react fragement ?
+   React Fragment is a feature in React that allows you to return multiple elements from a React component by allowing you to group a list of children without adding extra nodes to the DOM.
+
+17. conditional rendering
+   {loogedIn==1?<h1>Welcome user 1</h1>:loogedIn==2?<h2>Welcome user 2</h2>:<h2>Welcome user 3</h2>}
+
+18. style in react
+   1. <h2 style={{color: 'red', fontSize: '30px'}}></h2>
+   2. let makeStyle = {
+         color: 'red',
+         fontSize: '30px'
+      }
+      <h2 style={makeStyle}></h2>
+   3. call external style
+   4. using styled component
+
+19. can we use useState in useEffect ?
+   Yes
+
+20. What are the lifecycle method?
+   Each component in React has a lifecycle which you can monitor and manipulate during its three main phases.
+   The three phases are: Mounting, Updating, and Unmounting.
+
+21. call useEffect when component is created only
+   add array dependency for this
+   useEffect(() => {
+
+   }, [])
+
+22. call useEffect when compared is unmounted
+   useEffect(() => {
+      return () => {
+         console.log('hello')
+      }
+   }, [])
+
+23. can call useEffect on button click ?
+   No 
+
+24. can we use hook in class component?
+   No
+
+25. can we make multiple components in the same file?
+   Yes
+   demo
+   ----------------------
+      cont componentOne = () => {
+         return {
+            <componentTwo />
+         }
+      }
+
+      cont componentTwo = () => {
+         return {
+            <h2>Hello</h2>
+         }
+      }
+
+26. can we make component inside component ?
+   Yes
+   demo
+   ----------------------
+      cont componentOne = () => {
+
+         cont componentInside = () => {
+            return {
+               <h2>Hello</h2>
+            }
+         }
+
+         return {
+            <componentInside />
+         }
+      }
+
+27. can we use let, var and const insted of state and props ?
+   Yes we can use, but when using var, let, const updated the component is not render.
+
+28. Can we pass html content as props in component ?
+   Yes
+   demo
+   ------------------------
+      function App() {
+         return (
+            <div className='app'>
+               <h1>Interview question for react js</h1>
+               <Other><h1>Html Data</h1></Other>
+            </div>
+         )
+      }
+
+      function Other(props) {
+         return (
+            <h1>{props.children}</h1>
+         )
+      }
+
+29. What is Dumb component?
+   A dumb component can very easily defined as a statless functional component.
+
+30. What is package.json
+   This file profile application details such as version, node package, desription, etc.
+
+31. what is single page application ?
+   Which means application look like single page and no reload or refresh on jumping on another page and link.
+
+32. 
+
+
+
+
