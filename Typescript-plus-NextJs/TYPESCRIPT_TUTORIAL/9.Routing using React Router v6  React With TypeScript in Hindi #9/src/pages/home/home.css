@@ -1,0 +1,21 @@
+.home{
+  margin: auto;
+  max-width: 20rem;
+  text-align: center;
+  padding-top:1rem;
+  min-height: 100vh;
+
+}
+.home h2{
+  margin: 0;
+}
+
+.home.light{
+  background-color: white;
+  color: black;
+}
+
+.home.dark{
+  background-color: #333;
+  color: white;
+}

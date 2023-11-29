@@ -1,0 +1,22 @@
+.add-note textarea{
+    width: 60%; 
+    border:0;
+    padding: 0; 
+    vertical-align: bottom;
+}
+.add-note button{
+    line-height: 2rem;
+    width: 15%;
+    border:0;
+    padding: 0; 
+    background-color: rgb(17, 157, 17);  
+    color: white;
+}
+
+.add-note select{
+    line-height: 2rem;
+    width: 20%;  
+    height: 2rem;
+    border:0;
+    padding: 0; 
+}

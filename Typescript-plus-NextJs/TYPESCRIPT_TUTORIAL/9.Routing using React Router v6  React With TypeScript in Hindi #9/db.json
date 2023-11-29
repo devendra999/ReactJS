@@ -1,0 +1,32 @@
+{
+  "notes": [
+    {
+      "text": "note 1 (updated now)",
+      "priority": "low",
+      "id": "b31926f0-3ede-4c67-867d-aca9830ed8b0",
+      "createdAt": "2022-09-17T16:15:54.984Z",
+      "updatedAt": "2022-09-17T16:21:15.119Z"
+    },
+    {
+      "text": "note 3 (updated)",
+      "priority": "high",
+      "id": "78486737-f03f-4da1-a40c-460149e7cf87",
+      "createdAt": "2022-09-17T16:16:02.765Z",
+      "updatedAt": "2022-09-17T16:18:04.640Z"
+    },
+    {
+      "text": "medium note",
+      "priority": "medium",
+      "id": "882bbdfa-0beb-4fde-8c7b-72b52327a5fb",
+      "createdAt": "2022-09-18T16:31:15.376Z",
+      "updatedAt": "2022-09-18T16:31:15.376Z"
+    },
+    {
+      "text": "a note with \nlong \nlong\nlong\ndata\nasdasd\nasd\nasd\nsad\nasd\nsad\nsa\nd\nas\nd\nas\ndas\nd\ndas\na\nda\ndas\ndsa\ndasda\nd\nasd",
+      "priority": "low",
+      "id": "2503cd96-fb40-4750-8b4f-8791b4d329c6",
+      "createdAt": "2022-09-18T16:32:22.138Z",
+      "updatedAt": "2022-09-18T16:32:22.138Z"
+    }
+  ]
+}

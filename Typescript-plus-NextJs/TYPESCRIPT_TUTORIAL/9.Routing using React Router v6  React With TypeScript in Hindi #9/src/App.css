@@ -1,0 +1,15 @@
+.react-switch{
+  position: absolute !important;
+  right:0;
+}
+
+.App.light{
+  background-color: white;
+  color: black;
+}
+
+.App.dark{
+  background-color: #333;
+  color: white;
+}
+

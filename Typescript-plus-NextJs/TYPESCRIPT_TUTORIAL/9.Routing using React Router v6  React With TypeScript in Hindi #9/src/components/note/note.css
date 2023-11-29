@@ -1,0 +1,27 @@
+
+.right-corner{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;
+}
+.left-corner{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0.5rem;
+}
+.date{
+    font-size: 0.3rem;
+}
+.text{
+    white-space: pre-wrap;
+}
+.text-hide{
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+           line-clamp: 2; 
+   -webkit-box-orient: vertical;
+}

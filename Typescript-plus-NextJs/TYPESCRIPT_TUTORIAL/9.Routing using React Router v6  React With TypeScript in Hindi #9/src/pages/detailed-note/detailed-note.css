@@ -1,0 +1,17 @@
+.detailed-note{
+  margin: auto;
+  max-width: 20rem;
+  text-align: center;
+  padding-top:1rem;
+  min-height: 100vh;
+}
+
+.detailed-note.light{
+  background-color: white;
+  color: black;
+}
+
+.detailed-note.dark{
+  background-color: #333;
+  color: white;
+}
