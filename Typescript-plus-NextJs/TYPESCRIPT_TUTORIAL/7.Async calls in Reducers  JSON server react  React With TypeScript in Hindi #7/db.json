@@ -1,0 +1,19 @@
+{
+  "notes": [
+    {
+      "text": "This is note 5 ***",
+      "priority": "low",
+      "id": "5"
+    },
+    {
+      "text": "test note ******",
+      "priority": "high",
+      "id": "d666326a-a06f-44c8-8dad-b6fba11dbb70"
+    },
+    {
+      "text": "new note ****************",
+      "priority": "medium",
+      "id": "1936edf9-bfbb-4c58-a3fa-3b2f8c94ae54"
+    }
+  ]
+}

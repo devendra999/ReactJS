@@ -1,0 +1,16 @@
+
+.right-corner{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;
+}
+.left-corner{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0.5rem;
+}
+.date{
+    font-size: 0.3rem;
+}

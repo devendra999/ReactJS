@@ -1,0 +1,25 @@
+{
+  "notes": [
+    {
+      "text": "note 1 (updated now)",
+      "priority": "low",
+      "id": "b31926f0-3ede-4c67-867d-aca9830ed8b0",
+      "createdAt": "2022-09-17T16:15:54.984Z",
+      "updatedAt": "2022-09-17T16:21:15.119Z"
+    },
+    {
+      "text": "note 2 (updated now)",
+      "priority": "low",
+      "id": "7f77e872-f7f8-4617-ab9d-8f32a46780fb",
+      "createdAt": "2022-09-17T16:15:59.545Z",
+      "updatedAt": "2022-09-17T18:08:23.343Z"
+    },
+    {
+      "text": "note 3 (updated)",
+      "priority": "high",
+      "id": "78486737-f03f-4da1-a40c-460149e7cf87",
+      "createdAt": "2022-09-17T16:16:02.765Z",
+      "updatedAt": "2022-09-17T16:18:04.640Z"
+    }
+  ]
+}
