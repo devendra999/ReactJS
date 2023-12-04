@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.content {
+  max-width: 600px;
+}
+
+.content h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.content form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.paragraph p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+body {
+  background: aliceblue;
+}
+
+.error {
+  width: 100%;
+  text-align: center;
+  color: #ff6363;
+}

@@ -1,0 +1,56 @@
+.main-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: aliceblue;
+}
+
+.content {
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 1rem;
+  width: 500px;
+  box-shadow: 0px 4px 10px #d1d1d1;
+}
+
+.content h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.content form {
+  display: flex;
+  justify-content: center;
+}
+
+.content .item-list {
+  margin-top: 1rem;
+}
+
+.content .item-list li {
+  list-style: none;
+  display: flex;
+  margin-bottom: 1rem;
+      justify-content: space-between;
+}
+
+.content .item-list .line-through {
+  text-decoration: line-through;
+  color: red;
+}
+
+.content .item-list input {
+  margin-right: 0.5rem;
+}
