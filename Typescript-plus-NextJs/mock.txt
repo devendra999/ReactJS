@@ -373,7 +373,61 @@
 31. what is single page application ?
    Which means application look like single page and no reload or refresh on jumping on another page and link.
 
-32. 
+32. Difference between interface or types
+   // 1: Different
+   //? Use custom types when you need unions, intersection(&), or mapped types.
+   //? Use interfaces when defining object shape or classses that adhere to a contract.
+   
+   // 2: Different
+   //? Custom type can use unions and intersections for more complex type compositions.
+   //? Interfaces can extend other interfaces to inherit their memberes.
+   
+   // type example
+   // -------------------------------
+   // Note : here we can use unions(|) and intersection(&) both property are optional and required
+   // Note: same name of types are not allowed
+           // type Student = {
+           //     name: string;
+           //     age: number;
+           // }
+   
+           // type StudentAddress = {
+           //     city: string;
+           //     state: number;
+           // }
+   
+           // type Data = Student & StudentAddress; // here used or and & operator any one
+           // type Data = Student | StudentAddress; // here used or and & operator any one
+   
+           // const BioData: Data = {
+           //     name: 'Devendra',
+           //     city: 'ahmedabad',
+           //     state: 'gujarat'
+           // }
+   
+   
+   // interface example
+   // -------------------------------
+   // Note : here we can't use unions(|) both property are required like Stundent and StudentAddress
+   // Note : same name of interfaces are allowed
+   
+           // interface Student {
+           //     name: string;
+           //     age: number;
+           // }
+   
+           // interface StudentAddress {
+           //     city: string;
+           //     state: number;
+           // }
+   
+           // interface Data extends Student, StudentAddress{ } // here used or and & operator any one
+   
+           // const BioData: Data = {
+           //     name: 'Devendra',
+           //     city: 'ahmedabad',
+           //     state: 'gujarat'
+           // }
 
 
 
