@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 1.2rem;
+}
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 500;
+}
+
+
+.single-board {
+  margin: 0.5rem;
+  padding: 0.5rem;
+      min-width: 280px;
+        width: 280px;
+}
+
+.single-board > .content {
+  position: relative;
+  background: #f5f5f5;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+      box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+}
+
+.single-board .title h3 {
+  font-weight: 600;
+}
+
+.single-board .title {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown ul {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: #fff;
+  width: 170px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.8rem;
+  z-index: 999;
+}
+
+.scroll {
+  display: flex;
+  overflow: auto;
+}
+
+.single-card {
+  background: #fff;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  box-shadow: 3px 4px 5px -3px #d9d9d9;
+}
+
+.single-card .detail {
+  display: flex;
+  margin-top: 1rem;
+  justify-content: space-between;
+}
+
+.single-card .detail .single-detail {
+  font-size: 0.7rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+}
+
+.single-card .detail svg {
+  width: 1rem;
+  margin-right: 0.3rem;
+  color: #095fb6
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(0 0 0 / 60%);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: #fff;
+  width: 700px;
+  min-height: 400px;
+  border-radius: 0.3rem;
+  padding: 1.5rem;
+  max-height: 90%;
+  overflow: auto;
+  position: relative;
+}
+
+svg.close-modal {
+  position: absolute;
+  right: 15px;
+      padding: 5px;
+  top: 15px;
+  background: #f00;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+}
+
+.d-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.align-items-center {
+  align-items: center;
+}
+
+.single-edit-field:not(:first-child) {
+  margin-top: 1.5rem;
+}
+
+.single-edit-field .edit-title {
+  margin-bottom: 0.5rem;
+}
+
+.single-edit-field .edit-title h4 {
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+.single-edit-field p {
+  background: #f4f4f4;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+ul.color-groups {
+  display: flex;
+  margin-bottom: 0.8rem;
+}
+
+ul.color-groups li {
+  width: 20px;
+  height: 20px;
+  border: 3px solid transparent;
+  border-radius: 100%;
+  list-style: none;
+  margin-right: 0.5rem;
+}
+
+ul.color-groups li.li_active {
+  border-color: #ffffff;
+  box-shadow: 1px 1px 5px #a5a5a5;
+}
+
+.cardinfo-labels {
+  margin-bottom: 0.5rem;
+}
+
+.cardinfo-labels .MuiStack-root {
+  flex-wrap: wrap;
+}
+.cardinfo-labels .MuiStack-root .MuiChip-root {
+  margin-left: 0;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.single-card .MuiStack-root {
+  flex-wrap: wrap;
+}
+
+.single-card .MuiStack-root .single-label {
+  margin-left: 0;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+.editable-field p {
+  width: fit-content;
+}
+.cardinfo_box_task_checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.cardinfo_box_task_checkbox .MuiCheckbox-root {
+  padding: 0 10px;
+}
+
+.cardinfo_box_task_checkbox .completed {
+  text-decoration: line-through;
+  color: #a8193d;
+}
+.close-task {
+  color: #a8193d;
+}
+
+.cardinfo_box_progress-bar {
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 0.5px solid #e4e4e4;
+  box-shadow: 1px 1px 5px #e7e7e7;
+}
+
+.cardinfo_box_progress-bar .cardinfo_box_progress {
+  background: #1976d2;
+  height: 10px;
+  width: 100%;
+}
+
+.cardinfo_box_task_list {
+  margin-bottom: 1rem;
+}
+
+.cardinfo-labels .MuiChip-root {
+  background: #c2c2c2;
+}
+
+.dropdown button {
+  min-width: auto;
+  padding: 5px;
+}
+
+.dropdown button svg {
+  width: 20px;
+}
+
+.main-wrapper {
+  background: #dbd7fa;
+  height: 100vh;
+  width: 100%;
+}
+
+.menu {
+  padding: 1rem;
+  background: #cbc5f5;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+}
+
+.menu h2 {
+  font-weight: 700;
+}
+
+.scroll {
+  height: calc(100vh - 68px);
+}
+
+.single-label>div {
+  color: #fff;
+}
