@@ -1,1 +1,4 @@
-logic apps
+apps URl
+Thapa ecommerce app : https://stores-app.netlify.app/
+Formbuild app : https://formbuilds.netlify.app/
+Task app : https://mytaskapps.netlify.app/
