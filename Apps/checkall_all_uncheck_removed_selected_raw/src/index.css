@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.2rem;
+  line-height: 2rem;
+  font-weight: 300;
+  background: aliceblue;
+}
+
+html,
+body,
+#root,
+#root>div {
+  height: 100%;
+}
+
+table {
+  width: 100%;
+  max-width: 800px;
+  margin: 3rem auto 0 auto;
+  border-collapse: collapse;
+}
+
+table td,
+table th {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+}
+
+button {
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  background: #088c0e;
+  color: #fff;
+  border: 0;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
