@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+font-family: 'Work Sans', sans-serif;
+font-size: 1rem;
+font-weight: 300;
+}
+
+ul, ul li, ol, ol li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.container {
+  max-width: 1400px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img {
+  max-width: 100%;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+    padding: 1rem;
+  align-items: center;
+}
+
+.notfound {
+  min-height: 200px;
+  padding-top: 5rem;
+}
+
+.main_notes {
+  width: 420px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #fff;
+  padding: 1rem;
+  height: 90vh;
+  position: relative;
+  box-shadow: 0 0.5px 15px #e2e2e2;
+  border-radius: 10px;
+}
+
+.add_btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 100% !important;
+  position: absolute !important;
+  bottom: 1rem;
+  right: 1rem;
+  min-width: auto !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.oneline_eclipse {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+}
+
+.singleNote .content {
+  background: #f4f4f4;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  width: calc(100% - 42px);
+}
+.singleNote.full .content {
+  width: 100%;
+}
+
+.list_of_notes {
+  height: calc(100% - 55px);
+  overflow: auto;
+}
+
+.contgainer {
+  height: 100%;
+}
+
+.btn-group button {
+  min-width: auto;
+}
+
+.search-note button {
+  min-width: auto;
+}
+
+.search-note .MuiFormControl-root {
+  margin: 0 1rem;
+}
+
+.btn-group button:last-child {
+  padding-right: 0;
+}
+
+.mb-1 {
+  margin-bottom: 1rem !important;
+}
+.mb-2 {
+  margin-bottom: 1.2rem !important;
+}
+.mb-3 {
+  margin-bottom: 1.5rem !important;
+}
+.mb-4 {
+  margin-bottom: 2rem !important;
+}
+.mb-5 {
+  margin-bottom: 2.5rem !important;
+}
+
+.dark {
+  background: darkcyan;
+}
+
+.dark .main_notes {
+  background-color: #000000;
+  box-shadow: 0 0.5px 46px #353535;
+}
+
+.dark h4,
+.dark h6 {
+  color: #fff;
+}
+
+.dark .singleNote .content {
+  background: #222;
+}
+
+.dark p {
+  color: #a5a5a5;
+}
+
+.dark span {
+  color: #626262;
+}
+
+.dark svg,
+.dark .text,
+.dark fieldset,
+.dark .notfound,
+.dark .MuiInputBase-root input,
+.dark .MuiFormControl-root label,
+.dark textarea {
+  border-color: #6f6f6f;
+  color: #fff !important;
+}
+
+.dark .MuiInputBase-root:hover fieldset {
+  border-color: #fff;
+}
+
+.dark .MuiButtonBase-root.Mui-disabled svg {
+  color: #6f6f6f !important;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
