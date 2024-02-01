@@ -1,0 +1,575 @@
+// 1. install
+// ----------------------------------------------------------------------------------------------------------
+    npm install zustand
+
+
+
+// 2. use
+// ----------------------------------------------------------------------------------------------------------
+
+        // 1st way
+
+            // 1. create store in src directory
+
+                // store.tsx (File)
+                    import { create } from 'zustand'
+
+                    const useStore = create((set) => ({  // set is a function
+                        count: 0,
+                        dec: () => set((state) => ({ count: state.count - 1 })),
+                        inc: () => set((state) => ({ count: state.count + 1 })),
+                    }))
+
+                    export default useStore;
+
+            // 2.  use in file
+            
+                import useStore from "@/store";
+
+                export default function Home() {
+                    const { count, dec, inc } = useStore();
+
+                    return (
+                        <>
+                            <div>
+                                <button onClick={dec}>one down</button>
+                                <span>{count}</span>
+                                <button onClick={inc}>one up</button>
+                            </div>
+                        </>
+                    );
+                }
+
+        // 2nd way (Best Practice)
+
+            // 1.  create store in src directory
+
+                // store.tsx (file)
+                    import { create } from 'zustand'
+
+                    const initialState = {
+                        count: 0
+                    }
+
+                    const useStore = create(() => {
+                    ...initialState,
+                    });
+
+                    export default useStore;
+
+            // 2. create actions file in src directory
+
+                // actions.js (File)
+                    import useStore from "@/store";
+
+                    export const dec = () => {
+                        useStore.setState((state) => ({count: state.count - 1}));
+                    }
+
+                    export const inc = () => {
+                        useStore.setState((state) => ({count: state.count + 1}));
+                    }
+                
+            // 3. use in file
+
+                import useStore from "@/store";
+                import { dec, inc } from "@/actions";
+
+                export default function Home() {
+                    const { count } = useStore();
+
+                    return (
+                        <>
+                            <div>
+                                <button onClick={dec}>one down</button>
+                                <span>{count}</span>
+                                <button onClick={inc}>one up</button>
+                            </div>
+                        </>
+                    );
+                }
+
+
+
+
+3. Read state
+// ----------------------------------------------------------------------------------------------------------
+    // store.js (File)
+        const useStore = create((set, get) => ({ 
+            dec: () => {
+                const counter = get().count - 1;
+                set(() => ({ counter }));
+            },
+            inc: () => {
+                const counter = get().count + 1;
+                set(() => ({ counter }));
+            },
+        }))
+
+
+
+4. Asyncronous function
+// ----------------------------------------------------------------------------------------------------------
+    // store.js (File)
+        const useStore = create((set) => ({ 
+            getUsers: async = () => {
+                const {data} => axios.get('url');
+                set(() => ({users: data}));
+            }
+        }))
+
+
+
+5. Redux in Zustand
+// ----------------------------------------------------------------------------------------------------------
+    // store.js (File)
+        import { create } from 'zustand'
+        import { redux } from 'zustand/middleware'
+
+        // define types
+        export const types = {
+            DECREASE: "DECREASE",
+            INCREASE: "INCREASE",
+            INCREASEBY: "INCREASEBY",
+        };
+
+        // define reducer
+        const reducer = (state, {type, payload}) => { 
+            switch (type) {
+            case types.DECREASE:
+                return { counter: state.counter - 1 };
+            case types.INCREASE:
+                return { counter: state.counter + 1 };
+            }
+            case types.INCREASEBY:
+                return { counter: state.counter + payload };
+            }
+            default: return {state}
+        }
+
+        const initialState = {
+            counter: 0
+        }
+
+        const useStore = create((set) => ({ 
+            dispatch: (action) => set((state) => reducer(state, action)),
+        }))
+
+        export default useStore;
+
+    // file.js (File)
+        import useStore from "@/store";
+        import { types } from '@/store';
+
+        export default function Home() {
+        const { counter, dispatch } = useStore();
+        return (
+            <>
+                <div>
+                    <button onClick={() => dispatch({ type: types.DECREASE })}>1-</button>
+                    <span>{counter}</span>
+                    <button onClick={() => dispatch({ type: types.INCREASE })}>1+</button>
+                    <button onClick={() => dispatch({ type: types.INCREASE, payload: 10 })}>
+                    10+
+                    </button>
+                </div>
+            </>
+            );
+        }
+
+
+6. Zustand - Redux devtools
+// ----------------------------------------------------------------------------------------------------------
+    // 1. use in zustand
+        import { create } from "zustand";
+        import { devtools } from "zustand/middleware";
+
+        const useStore = create(
+        devtools((set) => ({
+            count: 0,
+            dec: () => set((state) => ({ count: state.count - 1 })),
+            inc: () => set((state) => ({ count: state.count + 1 })),
+        }))
+        );
+
+        export default useStore;
+
+    // 2. use in zustand redux
+        const useStore = create((set) => ({ 
+            dispatch: (action) => set((state) => reducer(state, action)),
+        }))
+
+
+7. Slice pattern in zustand
+// ----------------------------------------------------------------------------------------------------------
+
+    // 1. create slice foler in src directory
+
+        // 1. create slice.js file like
+            mangoSlice.js
+            bananaSlice.js
+            appleSlice.js
+            kiwiSlice.js
+
+            // 1. in mangoSlice.js (File)
+                const mangoSlice = (set) => ({
+                    mango: 0,
+                    decMango: () => set((state) => ({ mango: state.mango - 1 })),
+                    incMango: () => set((state) => ({ mango: state.mango + 1 })),
+                });
+                export default mangoSlice;
+
+            // 2. in bananaSlice.js (File)
+                const bananaSlice = (set) => ({
+                    banana: 0,
+                    decBanana: () => set((state) => ({ banana: state.banana - 1 })),
+                    incBanana: () => set((state) => ({ banana: state.banana + 1 })),
+                });
+                export default bananaSlice;
+
+            // 3. in appleSlice.js (File)
+                const appleSlice = (set) => ({
+                    apple: 0,
+                    decApple: () => set((state) => ({ apple: state.apple - 1 })),
+                    incApple: () => set((state) => ({ apple: state.apple + 1 })),
+                });
+                export default appleSlice;
+
+            // 4. in kiwiSlice.js (File)
+                const kiwiSlice = (set) => ({
+                    kiwi: 0,
+                    decKiwi: () => set((state) => ({ kiwi: state.kiwi - 1 })),
+                    incKiwi: () => set((state) => ({ kiwi: state.kiwi + 1 })),
+                });
+                export default kiwiSlice;
+
+   
+    // 2. store.js (File)
+
+        import { create } from "zustand";
+
+        const useStore = create((set) => ({
+        ...mangoSlice(set),
+        ...bananaSlice(set),
+        ...appleSlice(set),
+        ...kiwiSlice(set),
+
+        mango: 0,
+        decMango: () => set((state) => ({ mango: state.mango - 1 })),
+        incMango: () => set((state) => ({ mango: state.mango + 1 })),
+        }));
+
+
+
+
+8. Update Deeply Nested Object with Immer
+// ----------------------------------------------------------------------------------------------------------
+    // 1. npm i immer
+
+    // 2. store.js (File)
+        import { create } from "zustand";
+        import { produce } from "immer";
+
+        const useStore = create((set) => ({
+
+            counter: {
+                vegetables: {
+                    cucumber: 0,
+                    broccolli: 0,
+                    onion: 0,
+                },
+                fruits: {
+                    apple: 0,
+                    watermelon: 0,
+                    pear: 0,
+                }
+            }
+
+            addCucumber: () =>
+                set(
+                    produce((state) => {
+                        state.counter.vegetables.cucumber += 1;
+                    })
+                ),
+            removeCucumber: () =>
+                set(
+                    produce((state) => {
+                        state.counter.vegetables.cucumber -= 1;
+                    })
+                ),
+
+            addBroccolli: () =>
+                set(
+                    produce((state) => {
+                        state.counter.vegetables.broccolli += 1;
+                    })
+                ),
+            removeBroccolli: () =>
+                set(
+                    produce((state) => {
+                        state.counter.vegetables.broccolli -= 1;
+                    })
+                ),
+
+            addOnion: () =>
+                set(
+                    produce((state) => {
+                        state.counter.vegetables.onion += 1;
+                    })
+                ),
+            removeOnion: () =>
+                set(
+                    produce((state) => {
+                        state.counter.vegetables.onion -= 1;
+                    })
+                ),
+
+            addApple: () =>
+                set(
+                    produce((state) => {
+                        state.counter.fruits.apple += 1;
+                    })
+                ),
+            removeApple: () =>
+                set(
+                    produce((state) => {
+                        state.counter.fruits.apple -= 1;
+                    })
+                ),
+
+            addWatermelon: () =>
+                set(
+                    produce((state) => {
+                        state.counter.fruits.watermelon += 1;
+                    })
+                ),
+            removeWatermelon: () =>
+                set(
+                    produce((state) => {
+                        state.counter.fruits.watermelon -= 1;
+                    })
+                ),
+
+            addPear: () =>
+                set(
+                    produce((state) => {
+                        state.counter.fruits.pear += 1;
+                    })
+                ),
+            removePear: () =>
+                set(
+                    produce((state) => {
+                        state.counter.fruits.pear -= 1;
+                    })
+                ),
+        
+        }));
+
+        export default useStore;
+        
+
+        
+    // 2. counter.js (File)
+        // In counter.js file destucture this way
+
+            const {
+                counter: {
+                    vegetables: { cucumber, broccolli, onion },
+                    fruits: { apple, watermelon, pear },
+                },
+            } = useStore();
+
+
+
+
+9. Immer middleware in zustand (don't use 8th number of immer with produce)
+// ----------------------------------------------------------------------------------------------------------
+
+    // store.js (file)
+
+        import { create } from "zustand";
+        import { immer } from "zustand/middleware/immer";
+
+        const useStore = create(
+            immer((set) => ({
+
+                counter: {
+                    vegetables: {
+                        cucumber: 0,
+                        broccolli: 0,
+                        onion: 0,
+                    },
+                    fruits: {
+                        apple: 0,
+                        watermelon: 0,
+                        pear: 0,
+                    }
+                }
+
+                addCucumber: () =>
+                    set((state) => {
+                            state.counter.vegetables.cucumber += 1;
+                        }),
+                removeCucumber: () =>
+                    set((state) => {
+                            state.counter.vegetables.cucumber -= 1;
+                        }),
+
+                addBroccolli: () =>
+                    set((state) => {
+                            state.counter.vegetables.broccolli += 1;
+                        }),
+                removeBroccolli: () =>
+                    set((state) => {
+                            state.counter.vegetables.broccolli -= 1;
+                        }),
+
+                addOnion: () =>
+                    set((state) => {
+                            state.counter.vegetables.onion += 1;
+                        }),
+                removeOnion: () =>
+                    set((state) => {
+                            state.counter.vegetables.onion -= 1;
+                        }),
+
+                addApple: () =>
+                    set((state) => {
+                            state.counter.fruits.apple += 1;
+                        }),
+                removeApple: () =>
+                    set((state) => {
+                            state.counter.fruits.apple -= 1;
+                        }),
+
+                addWatermelon: () =>
+                    set((state) => {
+                            state.counter.fruits.watermelon += 1;
+                        }),
+                removeWatermelon: () =>
+                    set((state) => {
+                            state.counter.fruits.watermelon -= 1;
+                        }),
+
+                addPear: () =>
+                    set((state) => {
+                            state.counter.fruits.pear += 1;
+                        }),
+                removePear: () =>
+                    set((state) => {
+                            state.counter.fruits.pear -= 1;
+                        }),
+
+            })
+        ));
+
+        export default useStore;
+
+
+
+
+10. Persist middleware in zustand
+// ----------------------------------------------------------------------------------------------------------
+    // store.js (File)
+        import { create } from 'zustand'
+        import { persist, createJSONStorage } from 'zustand/middleware'
+
+        export const useBearStore = create(
+            persist(
+                (set, get) => ({
+                    bears: 0,
+                    addABear: () => set({ bears: get().bears + 1 }),
+                }),
+                {
+                    name: 'food-storage', // name of the item in the storage (must be unique)
+                    storage: createJSONStorage(() => sessionStorage), // (optional) by default, 'localStorage' is used
+                },
+            ),
+        )
+
+
+11. Create Custom Middleware - Zustand
+// ----------------------------------------------------------------------------------------------------------
+
+    // 1. store.js (File)
+        
+        import create from 'zustand';
+
+        // Initial state
+        const initialState = {
+            count: 0,
+        };
+
+        // Custom middleware
+        const customMiddleware = (config) => (set, get, api) => {
+            // Middleware logic here
+
+            return config(set, get, api);
+        };
+
+        // Zustand store with middleware
+        const useStore = create(
+            customMiddleware((set, get, api) => ({
+                ...initialState,
+                increment: () => set((state) => ({ count: state.count + 1 })),
+                decrement: () => set((state) => ({ count: state.count - 1 })),
+            }))
+        );
+
+        export default useStore;
+
+    // 2. use in file like counter.jsx (File)
+
+        import useStore from '@/useStore';
+
+        function CounterComponent() {
+            const { count, increment, decrement } = useStore();
+
+            return (
+                <div>
+                    <p>Count: {count}</p>
+                    <button onClick={increment}>Increment</button>
+                    <button onClick={decrement}>Decrement</button>
+                </div>
+            );
+        }
+
+        export default CounterComponent;
+
+
+
+12. reading, writing, subscribe to changes outside of components | Zustand
+// ----------------------------------------------------------------------------------------------------------
+
+    // 1. use in file like counter.jsx (File)
+
+        console.log(useStore().getState()); // use for get state
+
+        useStore().getState().increaseBY(10);
+
+        useStore().setState({counter: 111}); // use for set state
+
+        useStore().subscribe((curValue, preValue) => console.log(curValue, preValue)); // use for get current and previous value
+
+        useStore().subscribe(
+            (state) => state.counter,
+            (curValue, preValue) => console.log('current value :', curValue, 'previous value :', preValue)
+        );
+
+        useStore.destroy() // use for destroy subscribe
+
+    //2. store.js (File)
+
+        import { create } from 'zustand'
+        import { subscribeWithSelector } from 'zustand/middleware' // when use outside components subscribe method
+
+        const useStore = create(subscribeWithSelector(
+            (set) => ({  
+                counter: 0,
+                dec: () => set((state) => ({ count: state.count - 1 })),
+                inc: () => set((state) => ({ count: state.count + 1 })),
+            })
+        ))
+
+        export default useStore;
+
