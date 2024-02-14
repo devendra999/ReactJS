@@ -573,3 +573,35 @@
 
         export default useStore;
 
+13. To access data from one store in another store using Zustand
+// ----------------------------------------------------------------------------------------------------------
+
+    // firstStore.js
+
+        import create from 'zustand';
+
+        // Define your first store
+        const useFirstStore = create((set) => ({
+            data: [], // Your data in the first store
+            setData: (data) => set({ data }), // Function to set data in the first store
+        }));
+
+        export default useFirstStore;
+
+    // secondStore.js
+
+        import create from 'zustand';
+        import useFirstStore from './firstStore'; // Import the first store
+
+        // Define your second store
+        const useSecondStore = create((set) => ({
+            
+        // Function to access data from the first store
+        getDataFromFirstStore: () => {
+            const dataFromFirstStore = useFirstStore.getState().data;
+            // Do something with the data from the first store
+            console.log(dataFromFirstStore);
+        },
+        }));
+
+        export default useSecondStore;
