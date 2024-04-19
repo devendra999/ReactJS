@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.3rem;
+  line-height: 2rem;
+  font-weight: 300;
+}
+
+ul,
+ul li,
+ol,
+ol li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.container {
+  max-width: 1400px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img {
+  max-width: 100%;
+}
+
+.d-flex {
+  display: flex;
+}
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.h-100 {
+  height: 100vh;
+}
+
+
+.item-2 {
+  height: 200vh;
+  background-color: #fddcdc;
+}
+
+.active.item-2 {
+  background-color: #1aff1e;
+}
+
+.box {
+  width: 300px;
+  height: 100px;
+  background-color: #ccc;
+}
+
+.box.active {
+  background-color: #1aff1e;
+}
+
+.bg-gray {
+  background-color: #f4f4f4;
+}
+
+
+.sticky-title {
+  position: relative;
+  z-index: 100;
+  background: #f4f4f4;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.sticky-title.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  /* Add your desired background color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Add shadow for better visibility */
+}
+
+
+
+
+/* vertical timeline */
+h1 {
+  font-size: 60px;
+  text-align: center;
+}
+
+.timeline {
+  position: relative;
+  margin: 50px auto;
+  padding: 40px 0;
+  width: 1000px;
+  box-sizing: border-box;
+}
+
+.timeline:before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: #c5c5c5;
+}
+
+.timeline ul {
+  padding: 0;
+  margin: 0;
+}
+
+.timeline ul li {
+  list-style: none;
+  position: relative;
+  width: 50%;
+  padding: 20px 40px;
+  box-sizing: border-box;
+}
+
+.timeline ul li:nth-child(odd) {
+  float: left;
+  text-align: right;
+  clear: both;
+}
+
+.timeline ul li:nth-child(even) {
+  float: right;
+  text-align: left;
+  clear: both;
+}
+
+.content {
+  padding-bottom: 20px;
+}
+
+.timeline ul li:nth-child(odd):before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 24px;
+  right: -6px;
+  background: rgba(233, 33, 99, 1);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(233, 33, 99, 0.2);
+}
+
+.timeline ul li:nth-child(even):before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 24px;
+  left: -4px;
+  background: rgba(233, 33, 99, 1);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(233, 33, 99, 0.2);
+}
+
+.timeline ul li h3 {
+  padding: 0;
+  margin: 0;
+  color: rgba(233, 33, 99, 1);
+  font-weight: 600;
+}
+
+.timeline ul li p {
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+.timeline ul li .time h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+.timeline ul li:nth-child(odd) .time {
+  position: absolute;
+  top: 12px;
+  right: -165px;
+  margin: 0;
+  padding: 8px 16px;
+  background: rgba(233, 33, 99, 1);
+  color: #fff;
+  border-radius: 18px;
+  box-shadow: 0 0 0 3px rgba(233, 33, 99, 0.3);
+}
+
+.timeline ul li:nth-child(even) .time {
+  position: absolute;
+  top: 12px;
+  left: -165px;
+  margin: 0;
+  padding: 8px 16px;
+  background: rgba(233, 33, 99, 1);
+  color: #fff;
+  border-radius: 18px;
+  box-shadow: 0 0 0 3px rgba(233, 33, 99, 0.3);
+}
+
+@media(max-width:1000px) {
+  .timeline {
+    width: 100%;
+  }
+}
+
+@media(max-width:767px) {
+  .timeline {
+    width: 100%;
+    padding-bottom: 0;
+  }
+
+  h1 {
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .timeline:before {
+    left: 20px;
+    height: 100%;
+  }
+
+  .timeline ul li:nth-child(odd),
+  .timeline ul li:nth-child(even) {
+    width: 100%;
+    text-align: left;
+    padding-left: 50px;
+    padding-bottom: 50px;
+    height: 0;
+    /* position: relative; */
+  }
+
+  .timeline ul li:nth-child(odd):before,
+  .timeline ul li:nth-child(even):before {
+    top: -18px;
+    left: 16px;
+  }
+
+  .timeline ul li:nth-child(odd) .time,
+  .timeline ul li:nth-child(even) .time {
+    top: -30px;
+    left: 50px;
+    right: inherit;
+  }
+}
+
+
+.timeline ul li.active:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  display: block;
+  background: #f00;
+  height: calc(100% + 20px);
+  animation-name: heightAnimation;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+
+}
+
+.timeline ul li:nth-child(odd).active:after {
+  left: 100%;
+}
+
+.timeline ul li:not(.active) .content:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: calc(100% + 2px);
+  width: 2px;
+  display: block;
+  background: #f00;
+  height: 0;
+  animation-name: heightAnimationRemove;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+}
+
+/* 
+.timeline ul li:not(.active):nth-child(even)::after {
+  left: -165px;
+} */
+.timeline ul li:nth-child(odd):after {
+  left: 100%;
+}
+
+@keyframes heightAnimation {
+  0% {
+    height: 0;
+  }
+
+  100% {
+    height: calc(100% + 20px);
+  }
+}
+
+@keyframes heightAnimationRemove {
+  from {
+    height: calc(100% + 20px);
+  }
+
+  to {
+    height: 0;
+  }
+}
