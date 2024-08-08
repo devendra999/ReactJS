@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.5rem;
+}
+
+.container {
+  max-width: 1400px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header {
+  background-color: #ccc;
+}
+
+
+/* Modal.css */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background-color: white;
+  padding: 20px;
+  min-width: 600px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  width: 100%;
+  max-height: 80%;
+  overflow: auto;
+  position: relative;
+}
+
+.close-button.btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2em;
+  background-color: rgb(196, 0, 0);
+  color: #fff;
+}
+
+
+
+.error {
+  color: rgb(196, 0, 0);
+  font-size: 0.8rem;
+}
+
+.w-50 {
+  width: 48%;
+}
+.w-full {
+  width: 100%;
+}
+
+.btn {
+  padding: 0;
+  min-width: auto;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.mr-2 {
+  margin-right: 1rem;
+}
