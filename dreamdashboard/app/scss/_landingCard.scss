@@ -1,0 +1,874 @@
+.main-flex-container {
+  align-content: space-between;
+  height: 100vh;
+  height: 100dvh;
+  background-image: url(/assets/images/bg-car-landing.png);
+
+
+  .top-header {
+    padding-top: 0rem;
+
+    @media screen and (orientation: landscape) and (min-device-width: 740px) and (max-device-width: 920px) {
+      padding-top: 1rem;
+    }
+
+    @media (min-width: 1921px) {
+      padding-left: 0;
+    }
+
+    @media screen and (orientation: landscape) and (max-device-width: 991px) {
+      padding-top: 10px;
+    }
+
+    @media (max-width: 639px) {
+      padding-top: 0rem;
+    }
+  }
+
+  .client-logo {
+    margin: 0 auto;
+    max-width: 240px;
+    min-width: 240px;
+    max-height: 120px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    object-fit: contain;
+
+    @media (max-width: 1399px) {
+      max-width: 180px;
+      min-width: 180px;
+    }
+    @media (max-width: 1199px) {
+      max-width: 160px;
+      min-width: 160px;
+    }
+
+
+    @media screen and (orientation: landscape) and (max-width: 991px) {
+      max-width: 120px;
+      min-width: 120px;
+      margin-bottom: 6px;
+    }
+
+    @media (max-width: 767px) {
+      max-width: 100px;
+      min-width: 100px;
+      max-height: 65px;
+      margin-bottom: 6px;
+    }
+  }
+}
+
+.MuiGrid-root {
+  &.main-grid {
+    justify-content: center;
+    max-width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    row-gap: 0.625rem;
+    margin-bottom: 1%;
+    margin-top: 1%;
+
+    @media screen and (orientation: landscape) and (min-device-width: 921px) and (max-device-width: 932px) {
+      max-width: calc(100% - 6.875rem) !important;
+    }
+
+    @media screen and (orientation: landscape) and (min-device-width: 740px) and (max-device-width: 920px) {
+      max-width: 72% !important;
+    }
+
+    @media (min-width: 1921px) {}
+
+    @media (max-width: 1024px) {
+      max-width: calc(100% - 1.875rem);
+      margin-bottom: 0.5%;
+      margin-top: 0.5%;
+    }
+
+    @media (max-width: 639px) {
+      max-width: 80%;
+    }
+
+    .landing-card {
+      background: $white 0% 0% no-repeat padding-box;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+      border-radius: 12%;
+      padding: 24% 10% 13%;
+      border-color: $white;
+      aspect-ratio: 222/168;
+      border-width: 0.25rem;
+      margin-top: 18%;
+      cursor: no-drop;
+
+      &:hover {
+        border: 0.25rem solid $grey100;
+      }
+
+      &:hover .company-logo {
+        border: 0.25rem solid $grey100;
+      }
+
+      @media screen and (orientation: landscape) and (min-device-width: 740px) and (max-device-width: 896px) {
+        aspect-ratio: 16/9;
+        padding-top: 1.4rem;
+      }
+
+      @media screen and (orientation: landscape) and (min-device-width: 740px) and (max-device-width: 932px) {
+        aspect-ratio: 16/9;
+        padding-top: 16%;
+      }
+
+      .brandname {
+        bottom: 6px;
+        left: 0;
+        text-align: center;
+        font-size: 16px;
+        text-wrap: wrap;
+        // white-space: nowrap;
+
+        @media (max-width: 1400px) {
+          font-size: 14px;
+        }
+        @media (max-width: 1125px) and (min-width: 1023px) {
+          font-size: 11px;
+        }
+
+        @media (max-width: 991px) {
+          font-size: 13px;
+          bottom: 0;
+        }
+
+        @media screen and (orientation: landscape) and (max-device-width: 991px) {
+          font-size: 9px;
+        }
+
+        @media screen and (orientation: portrait) and (max-width: 767px) {
+          font-size: 12px;
+        }
+
+        @media (max-width: 639px) {
+          font-size: 10px;
+        }
+
+        @media (max-width: 350px) {
+          font-size: 9px;
+        }
+      }
+
+      .land-title {
+        left: 60%;
+        min-height: 25px;
+        min-width: 25px;
+        top: -24%;
+        border: 0.5px solid rgba(0, 0, 0, 0.06);
+        padding: 3px;
+        line-height: 0;
+
+        @media (min-width: 2500px) {
+          min-height: 45px;
+          min-width: 45px;
+          font-size: 28px;
+          border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        @media (max-width: 1366px) {
+          min-width: 25px;
+          min-height: 25px;
+          top: -29%;
+          left: 58%;
+        }
+
+        @media (max-width: 767px) {
+          min-width: 20px;
+          min-height: 20px;
+          top: -31%;
+          padding: 2px;
+        }
+
+        @media screen and (orientation: landscape) and (max-width: 991px) {
+          top: -29%;
+        }
+
+        @media screen and (orientation: landscape) and (min-device-width: 740px) and (max-device-width: 790px) {
+          top: -39%;
+        }
+
+        svg {
+          color: $darkyellow;
+          cursor: pointer;
+          margin-top: -2px;
+          font-size: 18px;
+
+          @media (min-width: 2500px) {
+            font-size: 28px;
+            margin-top: -4px;
+          }
+
+          @media (max-width: 1366px) {
+            font-size: 16px;
+          }
+
+          @media (max-width: 767px) {
+            font-size: 14px;
+          }
+        }
+
+        @extend .base-font;
+      }
+
+      &.yellow-bg {
+        background: rgb(237, 226, 172);
+        background: linear-gradient(0deg,
+            rgba(237, 226, 172, 1) 0%,
+            rgba(255, 255, 255, 1) 59%);
+
+        .company-logo {
+          border-color: #d77537 !important;
+        }
+
+        &:hover {
+          border-color: #d77537 !important;
+        }
+
+        &:hover .company-logo {
+          border-color: #d77537 !important;
+        }
+      }
+    }
+
+    .card-link {
+      .landing-card {
+        cursor: pointer;
+
+        &:hover {
+          border: 0.25rem solid $blue100;
+        }
+
+        &:hover .company-logo {
+          border: 0.25rem solid $blue100;
+        }
+      }
+    }
+
+    .main-card {
+      padding-top: 0rem;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+
+      @media (max-width: 639px) {
+        padding-left: 0rem;
+        padding-top: 0rem;
+      }
+    }
+
+    .subscription-pending {
+      cursor: not-allowed !important;
+
+      &:hover {
+        border-color: $grey100;
+      }
+    }
+
+    .card-cont {
+      img {
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .company-logo {
+      left: 50%;
+      transform: translateX(-50%);
+      border-color: $grey400;
+      border-width: 0.25rem;
+      width: 40%;
+      aspect-ratio: 1;
+      margin-top: -18% !important;
+
+      @media screen and (orientation: landscape) and (max-width: 991px) {
+        width: 30%;
+        margin-top: -15% !important;
+        border-width: 0.125rem;
+      }
+
+      @media (max-width: 767px) {
+        border-width: 0.125rem;
+      }
+    }
+  }
+}
+
+.MuiTypography-root {
+  &.heading {
+    font-size: 2.25rem;
+    line-height: 55px;
+
+    &.max-width-content {
+      @media (min-width: 768px) {
+        max-width: calc(100% - 50px);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      font-size: 1.875rem;
+      line-height: 3.25rem;
+    }
+
+    @media (max-width: 767px) {
+      font-size: 1rem;
+      line-height: 2rem;
+      letter-spacing: 1.5;
+      max-width: calc(100% - 30px);
+    }
+
+    @media screen and (orientation: landscape) and (max-device-width: 991px) {
+      font-size: 1rem;
+      line-height: 2rem;
+      letter-spacing: 1.5;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      margin: 0 auto;
+      padding-top: 0.3125rem;
+
+      @media (min-width: 1921px) {
+        width: clamp(18.75rem, 2.3vw, 31.25rem);
+      }
+    }
+  }
+
+  &.sub-heading {
+    font-size: 1.75rem;
+    padding-top: 6px;
+
+    @media (max-width: 1024px) {
+      font-size: 1.1875rem;
+      margin-bottom: 0rem;
+      padding-top: 6px;
+    }
+
+    @media (max-width: 767px) {
+      h2 {
+        font-size: 14px;
+        line-height: normal;
+      }
+    }
+
+    @media screen and (orientation: landscape) and (max-device-width: 991px) {
+      h2 {
+        font-size: 14px;
+        line-height: normal;
+      }
+    }
+  }
+}
+
+.main-box {
+
+  @media (max-width: 1024px) {
+    overflow-x: hidden;
+    margin: 0.75rem 0;
+    // padding-left: 0rem;
+  }
+
+  @media screen and (orientation: landscape) and (max-device-width: 812px) {
+    margin: 0rem 0;
+  }
+}
+
+.icon-button {
+  font-size: 12px;
+  font-weight: 500;
+  color: $black100;
+  border: 1px solid $white;
+  width: 93.6px;
+  height: 29px;
+  border-radius: 7.36px;
+  background: $white;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+  align-items: center;
+
+  &:hover {
+    background: $white;
+  }
+}
+
+.card-header {
+
+  @media (min-width: 2001px) and (max-width: 3000px) {
+    padding: 0.9rem;
+  }
+
+  &.permissionTbl,
+  &.white-checkbox {
+    svg {
+      color: $white;
+    }
+  }
+}
+
+.card-header.bucket-card {
+  font-size: 10px;
+  padding: 0.45rem;
+
+  @media (min-width: 2001px) and (max-width: 3000px) {
+    padding: 0.9rem;
+  }
+
+  svg {
+    color: $borderblue;
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+
+  span {
+    padding: 0 0rem 0 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    word-break: break-word;
+    margin-right: 0.5rem;
+  }
+
+  .edit-text-icon {
+    img {
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  .input-field-fix {
+
+    height: calc(100% - 16px);
+    max-width: calc(100% - 196px);
+
+    >.MuiInput-root {
+      height: 100%;
+
+      input {
+        height: 100%;
+      }
+    }
+  }
+
+  .close-icon-box {
+    .close-icon {
+      color: $white;
+      font-size: 1.25rem;
+      height: 20px;
+      width: 20px;
+      margin-left: 0.125rem;
+      margin-right: 0.125rem;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .MuiCardHeader-action {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .bucket-card-in.no-btn {
+    .input-field-fix {
+      max-width: calc(100% - 4.6875rem);
+    }
+  }
+  &.drag-card-section {
+    .edit-text-icon {
+      img {
+        filter: unset;
+      }
+    }
+
+    .input-field-fix {
+      max-width: calc(100% - 120px);
+    }
+
+    .MuiInputBase-root  {
+      height: 100%;
+      background-color: transparent;
+      padding: 5px;
+      font-size: 14px;
+      input {
+    
+    padding: 0;
+      }
+
+      &::after,
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
+
+.drag-list-content {
+  @media (max-width: 991px) {
+    padding-bottom: 10px;
+  }
+  .sheet-list {
+    height: auto;
+    li {
+      min-height: 48px;
+      margin-right: 0;
+      width: 100%;
+      .form-control {
+        .input-field-fix  {
+          max-width: calc(100% - 100px);
+          background-color: transparent;
+  
+        input.MuiInputBase-input  {
+            height: 32px;
+            padding: 0;
+          }
+        }
+      }
+
+      .error-border {
+        .MuiInputBase-root {
+          fieldset {
+            border-color: $red;
+          }
+        }
+      }
+
+      .MuiInputBase-root  {
+        input {  
+          height: 33px; 
+          border-radius: 0;
+          padding: 0;
+          padding-left: 0;
+          padding-right: 10px;
+        }
+
+        fieldset{
+          border: none;
+          border-bottom: 1px solid;
+          border-radius: 0;
+          padding: 0;
+        }
+      }
+
+      .item-name-content {
+        @media (max-width: 991px) {
+          font-size: 14px;
+        }
+      }
+   
+    }
+  }
+
+  .list_name {
+    line-height: 33px;
+    word-break: break-all;
+  }
+} 
+
+.item-name {
+  font-size: 16px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  width: auto;
+  display: inline-block;
+
+  &:last-child {
+    margin-bottom: 0px;
+  }
+
+  @media (max-width: 1024px) {
+    margin-bottom: 3.2px;
+  }
+
+  span {
+    font-size: 14.24px;
+
+    @media (max-width: 1024px) {
+      font-size: 12.64px;
+    }
+  }
+}
+
+.itembg-cream {
+  background: $lightgrey100;
+}
+
+.itembg-white {
+  background: $white;
+  box-shadow: 2px 5px 7px -5px #d7cece7a;
+}
+
+.content {
+  padding: 0.625rem 0.625rem 0rem;
+}
+
+
+.upload-btn {
+  font-size: 0.875rem;
+  padding: 0.625rem 0.8125rem;
+  display: flex;
+  font-weight: 400;
+  height: 2.3rem;
+  margin: 0rem auto 0rem;
+  width: auto;
+
+  @media (max-width: 1024px) {
+    font-size: 0.875rem;
+    height: 2.2rem;
+  }
+
+  @media (min-width: 2001px) and (max-width: 3000px) {
+    padding: 0.8rem 0.8125rem;
+  }
+
+}
+
+.sheet-list {
+  @media (max-width: 1440px) {
+    margin-right: 0px;
+  }
+}
+
+.common-btn,
+button.common-btn {
+  font-size: 0.875rem;
+  font-weight: 400;
+  height: 2.5rem;
+
+  @media (max-width: 539px) {
+    font-size: 0.75rem;
+  }
+
+  &:hover {
+    background: $white;
+    color: $black;
+    border: none;
+  }
+
+  svg {
+    color: $borderblue;
+  }
+}
+
+.simple-table {
+  border: 1px solid $lightestgrey;
+
+  tbody {
+    padding: 1.25rem;
+  }
+
+  thead th {
+    color: $white;
+    font-weight: 400;
+    font-size: 1.15rem;
+  }
+
+  th {
+    border-right: 1px solid $lightestgrey;
+    padding: 1rem;
+  }
+
+  td {
+    font-size: 0.95rem;
+    border-right: 1px solid $lightestgrey;
+    padding: 7px;
+    border-bottom: transparent;
+
+    &.withoutPadding {
+      padding: 0;
+      border-right: 0;
+
+      table {
+        tr {
+          &:first-child {
+            border-top: 0;
+          }
+
+          border-top: 1px solid #ccc;
+
+          td {
+            padding: 0.5rem;
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+
+  td.heading_td {
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    padding-left: 3.125rem;
+    padding-right: 3.125rem;
+
+    .acc_icon {
+      position: absolute;
+      left: 15px;
+      color: $borderblue;
+      top: 48%;
+      transform: translateY(-50%);
+      font-size: 24px;
+    }
+  }
+}
+
+.create-btn {
+  font-size: 0.875rem;
+  padding: 0.625rem 0.8125rem;
+  display: flex;
+  font-weight: 400;
+  height: 2.3rem;
+  color: $white;
+}
+
+.upload-date {
+  width: 50%;
+
+  @media (max-width: 1024px) {
+    width: 30%;
+  }
+
+  @media (max-width: 639px) {
+    width: 30%;
+  }
+}
+
+.main-view {
+  width: auto;
+
+  @media (min-width: 3001px) {
+    height: 76.2vh;
+  }
+
+  @media (min-width: 2001px) and (max-width: 3000px) {
+    height: 75.8vh;
+
+    .css-1d6wzja-MuiButton-startIcon>*:nth-of-type(1) {
+      font-size: 1rem !important;
+    }
+  }
+}
+
+.fit-content {
+  margin-top: 0;
+  margin-bottom: 0;
+
+  .main-view {
+    max-height: calc(100vh - 18rem);
+    height: 100%;
+    padding-bottom: 0.9375rem;
+
+    @media (max-width: 1919px) {
+      max-height: calc(100vh - 16rem);
+    }
+
+    @media (max-width: 1199px) {
+      max-height: calc(100vh - 15rem);
+    }
+
+    @media (max-width: 767px) {
+      max-height: calc(100vh - 14rem);
+    }
+
+    @media screen and (orientation: landscape) and (max-device-width: 896px) {
+      max-height: calc(100vh - 14rem);
+    }
+  }
+}
+
+
+.error-msg {
+  color: $red;
+  font-size: 0.75rem;
+  margin-top: 0.3rem;
+}
+
+.items-center~hr {
+  @media (max-width: 639px) {
+    // display: none;
+  }
+}
+
+.sheet-table {
+  .mapping-table {
+    tr {
+      td {
+        width: 17%;
+
+        &:first-child {
+          width: 32%;
+
+          @media (max-width: 1024px) {
+            width: 32%;
+          }
+        }
+
+        &:last-child {
+          width: 17%;
+
+          @media (max-width: 1024px) {
+            width: 17%;
+          }
+        }
+
+        div .dropdownComponent>div {
+          width: 100%;
+          border-radius: 0.5rem;
+          background: $white !important;
+        }
+      }
+    }
+
+    tbody tr:nth-child(odd) td div .dropdownComponent div {
+      background-color: $white;
+    }
+  }
+}
+
+
+
+.header-title {
+  .cursor-pointer,
+  .logout-button {
+    right: 15px;
+    top: 30px;
+
+    @media (max-width: 639px) {
+      right: 6px;
+      top: 8px;
+    }
+  }
+}
+
+// added padding & radius to table container
+.table-container-main {
+  &.MuiPaper-root {
+    &.MuiPaper-rounded {
+      &.MuiTableContainer-root {
+        border-radius: 1rem;
+
+        thead {
+          th {
+            padding: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.buck-card {
+  .MuiCardActions-root {
+     width: 100%;
+     position: absolute;
+     bottom: 0;
+  }
+}

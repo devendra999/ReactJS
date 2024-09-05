@@ -1,0 +1,607 @@
+.accordion-wrapper {
+  box-shadow: 0rem .25rem .25rem 0rem rgba(0, 0, 0, 0.25%);
+  padding: 0 1rem;
+
+  .accordion-header {
+    flex-direction: revert;
+    background-color: transparent;
+
+    div {
+      margin: 0;
+
+      svg {
+        fill: $black;
+      }
+
+      p {
+        font-weight: 600;
+        font-size: 1.25rem;
+        font-family: 'Poppins', sans-serif;
+        word-break: break-word;
+
+        @media (max-width: 767px) {
+          font-size: 1rem;
+        }
+      }
+
+      &.Mui-expanded {
+        p {
+          font-size: 1.5rem;
+
+          @media (max-width: 767px) {
+            font-size: 1.25rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.accodion-table-wrapper {
+  box-shadow: 0rem .125rem 1.5rem 0rem rgb(0 0 0 / 10%);
+
+  &.mapping-table {
+    thead {
+
+      tr {
+        th:first-child {
+          border-top-left-radius: .875rem;
+        }
+
+        th {
+          -webkit-animation-name: fadeIn;	
+          animation-name: fadeIn;
+          -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+          -webkit-animation-fill-mode: both;
+           animation-fill-mode: both;
+
+        }
+      }
+    }
+  }
+
+  thead {
+    tr {
+      th {
+        color: $white;
+        text-align: center;
+        white-space: nowrap;
+        @extend .base-font-m;
+      }
+
+      th:not(:last-child) {
+        border-right: .0625rem solid $lightgrey-100;
+      }
+
+      th:last-child {
+        border-top-right-radius: .875rem;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      .accordion-button-group {
+        background-color: transparent;
+        box-shadow: none !important;
+
+        button {
+          color: $black;
+          border: none !important;
+
+          &:first-child {
+            color: $borderblue;
+          }
+
+          &:hover {
+            background-color: transparent;
+          }
+        }
+      }
+
+      td:not(:last-child) {
+
+        border-right: .0625rem solid $lightgrey-100;
+      }
+
+      td {
+        @extend .base-font;
+        padding: 7px;
+        -webkit-animation-name: fadeIn;	
+        animation-name: fadeIn;
+        -webkit-animation-duration: 1.5s;
+        animation-duration: 1.5s;
+        -webkit-animation-fill-mode: both;
+         animation-fill-mode: both;
+
+        div {
+          padding: 0;
+
+          .MuiInputBase-formControl {
+            background-color: $lightgrey;
+            padding: 0.5rem 0.25rem 0.5625rem 0.875rem;
+            height: auto;
+            box-shadow: none;
+            border: .0625rem solid $lightgrey-100;
+            white-space: nowrap;
+            border-radius: 0.5rem;
+
+            fieldset {
+              border: none;
+            }
+
+            b,
+            .MuiSelect-select {
+              font-weight: normal;
+              font-size: 0.875rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.mapping-table {
+  background-color: transparent;
+
+  tbody {
+    tr {
+      &:nth-child(odd) {
+        background-color: $white;
+
+        td {
+          div {
+            .dropdownComponent {
+              div {
+                background-color: $lightwhite-500;
+              }
+            }
+          }
+        }
+      }
+
+      &:nth-child(even) {
+        background-color: $lightwhite-500;
+
+        td {
+          div {
+            .dropdownComponent {
+              div {
+                background-color: $white;
+              }
+            }
+          }
+        }
+      }
+
+      td {
+        .wrapper-dropdown {
+          margin: 0 auto;
+        }
+
+        textarea {
+          padding: 0.5938rem 0.625rem;
+          border: 0.0625rem solid $grey200;
+          border-radius: 0.25rem;
+          width: 80%;
+          font-size: 0.875rem;
+        }
+
+        div {
+          .dropdownComponent {
+            >div {
+              padding: 0.5625rem 0.625rem 0.5625rem 0.625rem;
+              border-radius: 0.25rem;
+              max-width: 20rem;
+              width: 100%;
+              margin: 0 auto;
+
+              b {
+                color: $grey500;
+              }
+            }
+
+            .MuiSelect-select {
+              padding: 0;
+              min-width: 100%;
+              text-align: left;
+              color: $grey500;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  tr {
+    td {
+      &:first-child {
+        width: 25%;
+
+        @media (max-width: 1024px) {
+          width: 50%;
+        }
+      }
+
+      &:last-child {
+        width: 75%;
+
+        @media (max-width: 1024px) {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+// permission table design start
+.permission-table {
+  .simple-table {
+    border: none;
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+  .accordion-heading {
+    >td {
+      padding: 7px;
+
+      @media (max-width: 767px) {
+        padding: .25rem .3125rem;
+      }
+    }
+
+    td {
+      width: 20%;
+      min-width: 12.5rem;
+      max-width: 12.5rem;
+
+      &:nth-child(1) {
+        width: 40%;
+        min-width: 18.75rem;
+        max-width: 18.75rem;
+        padding-left: 3.125rem;
+        padding-right: 3.125rem;
+        background-color: $white;
+
+
+        @media (min-width: 768px) {
+          position: sticky;
+          left: -0.125rem;
+          z-index: 1;
+        }
+
+        @media (min-width: 1200px) {
+          min-width: 25rem;
+          max-width: 25rem;
+        }
+
+        &::after {
+          position: absolute;
+          content: "";
+          height: 100%;
+          width: .0625rem;
+          background-color: hsla(0, 0%, 80%, 0.5);
+          right: 0;
+          top: 0;
+          bottom: 0;
+        }
+
+      }
+    }
+
+    &.itembg-cream {
+      td {
+        background-color: $lightgrey100;
+      }
+    }
+  }
+
+  .accordion-body {
+    >td {
+      padding: 7px;
+
+
+      @media (max-width: 767px) {
+        padding: .25rem .3125rem;
+      }
+
+    }
+  }
+
+  .table-container-main {
+    max-height: 31.25rem;
+  }
+
+  thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+
+    tr {
+      th {
+        width: 20%;
+        min-width: 12.5rem;
+        max-width: 12.5rem;
+        word-wrap: break-word;
+
+        &:nth-child(1) {
+          width: 40%;
+          min-width: 18.75rem;
+          max-width: 18.75rem;
+
+          background-color: #238ed7;
+
+
+          @media (min-width: 768px) {
+            position: sticky;
+            left: -0.125rem;
+            z-index: 1;
+          }
+
+
+
+
+          @media (min-width: 1200px) {
+            min-width: 25rem;
+            max-width: 25rem;
+          }
+
+          &::after {
+            position: absolute;
+            content: "";
+            height: 100%;
+            width: .0625rem;
+            background-color: hsla(0, 0%, 80%, 0.5);
+            right: 0;
+            top: 0;
+            bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .detail-table {
+    padding: 0;
+    border-top: 1px solid hsla(0, 0%, 80%, 0.5);
+    table {
+      tr {
+        td {
+          width: 20%;
+          min-width: 12.5rem;
+          max-width: 12.5rem;
+          z-index: 0;
+
+          &:nth-child(1) {
+            width: 40%;
+            min-width: 18.75rem;
+            max-width: 18.75rem;
+
+            @media (min-width: 768px) {
+              position: sticky;
+              left: -0.125rem;
+              z-index: 1;
+            }
+
+
+            @media (min-width: 1200px) {
+              min-width: 25rem;
+              max-width: 25rem;
+            }
+
+
+
+            &::after {
+              position: absolute;
+              content: "";
+              height: 100%;
+              width: .0625rem;
+              background-color: hsla(0, 0%, 80%, 0.5);
+              right: 0;
+              top: 0;
+              bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .accordion-details {
+    @media (max-width: 639px) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  .permission-button {
+    margin: .5rem 1rem 1.25rem;
+
+    @media (max-width: 639px) {
+      margin: .5rem 0 1.25rem;
+
+    }
+  }
+
+  &.benchmark-table {
+
+    thead {
+      tr {
+        th {
+          min-width: 7.5rem;
+          max-width: 7.5rem;
+          width: 7.5rem;
+          @extend .base-font-m;
+
+          &:nth-child(1) {
+            min-width: 12.5rem;
+            min-width: 12.5rem;
+            width: 12.5rem;
+            word-break: break-word;
+          }
+        }
+      }
+    }
+
+    .accordion-heading {
+      td {
+        min-width: 7.5rem;
+        max-width: 7.5rem;
+        width: 7.5rem;
+        @extend .base-font;
+      }
+    }
+
+    .accordion-body {
+      td:nth-child(1) {
+        @extend .base-font;
+        font-weight: 400;
+      }
+
+    }
+
+    .detail-table {
+      table {
+        tr {
+          td {
+            min-width: 7.5rem;
+            max-width: 7.5rem;
+            width: 7.5rem;
+            font-size: 14px;
+            -webkit-animation-name: fadeIn;
+            animation-name: fadeIn;
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+
+            &:nth-child(1) {
+              min-width: 12.5rem;
+              min-width: 12.5rem;
+              width: 12.5rem;
+              word-break: break-word;
+              -webkit-animation-name: fadeIn;
+              animation-name: fadeIn;
+              -webkit-animation-duration: 1s;
+              animation-duration: 1s;
+              -webkit-animation-fill-mode: both;
+              animation-fill-mode: both;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// permission table design end
+
+
+
+// Modal
+.modal.modal-small {
+  &.kpi-modal {
+    .modal-dialog {
+      max-width: 27.5rem;
+
+      @media (max-width: 575px) {
+        max-width: calc(100% - 1.875rem);
+      }
+
+      .title-pop-kpi {
+        font-size: 1.3125rem;
+        margin-bottom: 0.8125rem;
+        color: $blacklight;
+      }
+
+      button {
+        margin-right: 1rem;
+        padding: 0.5rem 1.875rem;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+        background: transparent linear-gradient(185deg, #2EA2DB 0%, #004CB0 100%) 0% 0% no-repeat padding-box;
+        color: $white;
+        border-radius: 0.25rem;
+        border: none;
+        transition: all 0.5s ease 0s;
+        text-transform: capitalize;
+
+        &:hover,
+        &:focus {
+          opacity: .9;
+          background: transparent linear-gradient(185deg, #004CB0 0%, #2EA2DB 100%) 0% 0% no-repeat padding-box;
+          box-shadow: -1px 6px 10px 0 rgba(120, 60, 20, 0.2);
+        }
+
+      }
+
+      hr {
+        margin-bottom: 1.375rem;
+      }
+    }
+  }
+}
+
+.permission-scroll-item {
+  .table-container-main {
+    table {
+      tr {
+        display: table;
+
+        td {
+          &.detail-table {
+            border-top: 1px solid hsla(0, 0%, 80%, 0.5);
+            border-bottom: 1px solid hsla(0, 0%, 80%, 0.5);
+          }
+
+          &:nth-child(1) {
+            word-break: break-word;
+            z-index: 2;
+            @extend .base-font;
+          }
+        }
+      }
+
+      .accordion-heading {
+        td {
+          font-weight: 500 !important;
+        }
+      }
+
+      .accordion-body {
+        td {
+          font-weight: 400 !important;
+        }
+      }
+
+      thead {
+        z-index: 3;
+
+        th {
+          @extend .base-font-m;
+
+
+          .checkbox-title-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            word-break: break-word;
+          }
+        }
+      }
+
+      .MuiCheckbox-root {
+        padding: 4px;
+      }
+    }
+  }
+}

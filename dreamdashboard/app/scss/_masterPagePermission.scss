@@ -1,0 +1,293 @@
+// master page permission table design start
+.master-page-table {
+  .simple-table {
+    border: none;
+  }
+
+  .accordion-heading {
+    >td {
+      padding: 0.5rem 0.625rem;
+
+      @media (max-width: 767px) {
+        padding: 0.25rem 0.3125rem;
+      }
+    }
+
+    td {
+      width: 20%;
+      min-width: 12.5rem;
+      max-width: 12.5rem;
+
+      &:nth-child(1) {
+        width: 40%;
+        min-width: 18.75rem;
+        max-width: 18.75rem;
+        padding-left: 3.125rem;
+        padding-right: 3.125rem;
+        background-color: $white;
+
+        @media (min-width: 768px) {
+          position: sticky;
+          left: -0.125rem;
+          z-index: 1;
+        }
+
+        @media (min-width: 1200px) {
+          min-width: 25rem;
+          max-width: 25rem;
+        }
+
+        &::after {
+          position: absolute;
+          content: "";
+          height: 100%;
+          width: 0.0625rem;
+          background-color: hsla(0, 0%, 80%, 0.5);
+          right: 0;
+          top: 0;
+          bottom: 0;
+        }
+      }
+    }
+
+    &.itembg-cream {
+      td {
+        background-color: $lightgrey100;
+      }
+    }
+  }
+
+  .accordion-body {
+    background-color: $lightgrey;
+
+    &:nth-child(even) {
+      background: #f4f4f4;
+
+      td {
+        &:nth-child(1) {
+          background: #f4f4f4;
+        }
+      }
+    }
+
+    &:nth-child(odd) {
+      background: $white;
+
+      td {
+        &:nth-child(1) {
+          background: $white;
+        }
+      }
+    }
+
+    >td {
+      padding: 7px;
+
+      @media (max-width: 767px) {
+        padding: 0.25rem 0.3125rem;
+      }
+    }
+
+    td {
+      width: 20%;
+      min-width: 12.5rem;
+      max-width: 12.5rem;
+
+      &:nth-child(1) {
+        width: 40%;
+        min-width: 18.75rem;
+        max-width: 18.75rem;
+        padding-left: 3.125rem;
+        padding-right: 3.125rem;
+        @extend .base-font-m;
+
+        @media (min-width: 768px) {
+          position: sticky;
+          left: -0.125rem;
+          z-index: 1;
+        }
+
+        @media (max-width: 767px) {
+          position: sticky;
+          left: -0.125rem;
+          z-index: 1;
+        }
+        @media (max-width: 639px) {
+          position: initial !important;
+        }
+
+        @media (min-width: 1200px) {
+          min-width: 25rem;
+          max-width: 25rem;
+        }
+
+        &::after {
+          position: absolute;
+          content: "";
+          height: 100%;
+          width: 1px;
+          background-color: hsla(0, 0%, 80%, 0.5);
+          right: 0;
+          top: 0;
+          bottom: 0;
+
+          @media (max-width: 639px) {
+            opacity: 0;
+          }
+        }
+      }
+
+      .MuiCheckbox-root {
+        padding: 4px;
+      }
+    }
+  }
+
+  thead {
+    tr {
+      th {
+        width: 20%;
+        min-width: 12.5rem;
+        max-width: 12.5rem;
+        word-wrap: break-word;
+        @extend .base-font-m;
+
+        .checkbox-title-item {
+          .MuiCheckbox-root  {
+            padding: 4px;
+          }
+        }
+
+        &:nth-child(1) {
+          width: 40%;
+          min-width: 18.75rem;
+          max-width: 18.75rem;
+          background-color: #238ed7;
+
+          @media (min-width: 768px) {
+            position: sticky;
+            left: -0.125rem;
+            z-index: 1;
+          }
+
+          @media (max-width: 767px) {
+            position: sticky;
+            left: -0.125rem;
+            z-index: 1;
+          }
+          @media (max-width: 639px) {
+            position: initial !important;
+          }
+          
+
+          @media (min-width: 1200px) {
+            min-width: 25rem;
+            max-width: 25rem;
+          }
+
+          &::after {
+            position: absolute;
+            content: "";
+            height: 100%;
+            width: 1px;
+            background-color: hsla(0, 0%, 80%, 0.5);
+            right: 0;
+            top: 0;
+            bottom: 0;
+
+            @media (max-width: 639px) {
+              opacity: 0;
+            }
+
+          }
+        }
+      }
+    }
+  }
+
+  .detail-table {
+    padding: 0;
+
+    table {
+      tr {
+        td {
+          width: 20%;
+          min-width: 12.5rem;
+          max-width: 12.5rem;
+          z-index: 0;
+
+          &:nth-child(1) {
+            width: 40%;
+            min-width: 18.75rem;
+            max-width: 18.75rem;
+            background-color: $lightgrey;
+
+            @media (min-width: 768px) {
+              position: sticky;
+              left: -0.125rem;
+              z-index: 1;
+            }
+
+            @media (min-width: 1200px) {
+              min-width: 25rem;
+              max-width: 25rem;
+            }
+
+            &::after {
+              position: absolute;
+              content: "";
+              height: 100%;
+              width: 0.0625rem;
+              background-color: hsla(0, 0%, 80%, 0.5);
+              right: 0;
+              top: 0;
+              bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .accordion-details {
+    @media (max-width: 639px) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  .permission-button {
+    margin: 0.5rem 1rem 1.25rem;
+
+    @media (max-width: 639px) {
+      margin: 0.5rem 0 1.25rem;
+    }
+  }
+
+  .table-container-main {
+    max-height: calc(100vh - 200px);
+ 
+    @media (max-width: 1280px) {
+      max-height: calc(100vh - 190px);
+    }
+
+    @media (max-width: 1199px) {
+      max-height: calc(100vh - 175px);
+    }
+
+    @media (max-width: 767px) {
+      max-height: calc(100vh - 165px);
+    }
+
+    table {
+      thead {
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 3;
+      }
+    }
+  }
+}
+
+// master page permission table design end

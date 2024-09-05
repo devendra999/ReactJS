@@ -1,0 +1,28 @@
+.loaderScreen {
+    img {
+        object-fit: contain;
+    }
+    &.hide {
+        display: none;
+    }
+    &.insideChart {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        border-radius: 20px;
+    }
+    
+    @media (max-width: 1199px) {
+        img {
+            height: 6.25rem;
+            width: 6.25rem;
+        }
+    }
+    &.insideChartLineChart {
+        position: absolute;
+        height: calc(100% + 32px);
+        width: calc(100% + 32px);
+        margin: -16px -16px;
+        border-radius: 20px;
+    }
+}

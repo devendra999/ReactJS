@@ -1,0 +1,318 @@
+.sidebar-wraper {
+  .list-wrapper {
+
+    background: transparent linear-gradient(200deg, #2ea2db 0%, #004cb0 100%) 0% 0% no-repeat padding-box;
+    transition: all 0.4s ease-in-out 0s;
+
+    ul:first-child {
+      max-height: calc(100vh - 110px);
+      max-height: calc(100dvh - 110px);
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &.open-menu {
+      width: 18rem;
+      height: calc(100vh - 64px);
+      height: calc(100dvh - 64px);
+      -webkit-box-shadow: 4px 3px 16px -1px rgba(0, 0, 0, 0.37);
+      -moz-box-shadow: 4px 3px 16px -1px rgba(0, 0, 0, 0.37);
+      box-shadow: 4px 3px 16px -1px rgba(0, 0, 0, 0.37);
+      opacity: 1;
+      transform: none;
+
+      @media (max-width: 1280px) {
+        height: calc(100vh - 60px);
+        height: calc(100dvh - 60px);
+      }
+
+      @media (max-width: 375px) {
+        width: calc(100% - 46px);
+      }
+    }
+    &.close-menu {
+      height: calc(100dvh - 60px);
+      transform: translateX(-100%);
+      width: 18rem;
+      opacity: 0;
+    }
+
+    .footer-logo-wrapper {
+      div {
+        display: contents;
+
+        .white-logo {
+          width: 3.8125rem;
+          margin: 0 auto;
+        }
+
+        .white-logo {
+          display: none;
+        }
+
+        .color-logo {
+          filter: brightness(0) invert(1);
+        }
+      }
+    }
+  }
+
+  .sidebar {
+    .main-icon {
+      >div {
+        justify-content: center;
+      }
+
+      &.dealerLogo {
+        &:nth-child(2) {
+          .nav-text {
+            display: block;
+
+            span {
+              font-size: 1.25rem;
+              font-weight: 600;
+              text-decoration: none;
+            }
+          }
+
+          img {
+            min-width: 3.125rem;
+            height: auto;
+          }
+        }
+      }
+
+      &.only-logo {
+        img {
+          min-width: 126px;
+          object-fit: contain;
+          max-height: 102px;
+
+          @media (max-width: 991px) {
+            min-width: 105px;
+          }
+        }
+      }
+
+      svg {
+        display: block;
+        color: $white;
+        pointer-events: none;
+      }
+
+      .nav-text {
+        left: auto;
+        span {
+          color: $white;
+          white-space: break-spaces;
+          transition: all 0.3s ease;
+          opacity: 1;
+          display: block;
+          margin: 0;
+          @extend .base-font-m;
+          word-wrap: break-word;
+          margin-right: 8px;
+        }
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      ul.nav-text {
+        div {
+          opacity: 1;
+          padding: 0;
+          margin: 0.3125rem 0;
+          display: flex;
+
+          @media (max-width: 1400px) {
+            display: block;
+          }
+        }
+
+        a {
+          display: none;
+
+          &:hover {
+            opacity: 1;
+            background: transparent;
+          }
+        }
+
+        >.MuiButtonBase-root {
+          display: none;
+        }
+
+        div.MuiListItemButton-gutters {
+          span {
+            opacity: 0.5;
+            font-size: 1rem;
+          }
+
+          &:hover {
+            span {
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+      &:hover {
+
+        background-color: transparent;
+
+
+        &:nth-child(2) {
+          background: transparent;
+        }
+
+        .nav-text {
+          opacity: 1;
+          pointer-events: auto;
+          transition: all 0.4s ease;
+          background-color: transparent;
+          top: 0;
+          transform: translateY(0);
+      
+
+          &.blank {
+            background-color: transparent;
+            top: 0;
+            transform: translateY(0);
+            min-height: auto;
+          }
+        }
+      }
+
+      &.clicked {
+        background-color: $blue;
+        margin-bottom: -1px;
+      }
+    }
+
+    .submenu {
+
+      div {
+        padding: 0 0 0.25rem 0.125rem;
+      }
+
+      .nav-text {
+        padding: 0;
+
+        a {
+          margin: 0;
+          padding: 0;
+
+          &:hover {
+            span {
+              opacity: 1;
+            }
+          }
+        }
+
+        span {
+          opacity: 0.6;
+          color: $white;
+          @extend .base-font-m;
+        }
+      }
+    }
+  }
+
+  .bars {
+    top: 20px;
+
+    @media (max-width: 1199px) {
+      top: 19px;
+    }
+
+    @media (max-width: 1024px) {
+      top: 14px;
+    }
+
+    @media screen and (orientation: landscape) and (max-width: 991px) {
+      top: 14px;
+    }
+
+    @media (max-width: 639px) {
+      top: 1rem;
+      position: fixed;
+    }
+
+    @media (min-width: 1200px) and (max-width: 1366px) {
+      top: 15px;
+    }
+
+    @media (min-width: 1367px) and (max-width: 1919.98px) {
+      top: 15px;
+    }
+
+    @media (min-width: 1920px) and (max-width: 3839.98px) {
+      top: 19px;
+    }
+
+    /* Ultra-Wide and 4K Plus Devices (3840px and up) */
+    @media (min-width: 3840px) {
+      top: 24px;
+    }
+
+    img {
+      @media (max-width: 1199px) {
+        height: 30px;
+        width: 30px;
+      }
+
+      @media (min-width: 1920px) and (max-width: 3839.98px) {
+        height: 32px;
+        width: 32px;
+      }
+
+      @media (min-width: 1200px) and (max-width: 1366px) {
+        height: 34px;
+        width: 34px;
+      }
+
+      @media (min-width: 1367px) and (max-width: 1919.98px) {
+        height: 38px;
+        width: 38px;
+      }
+
+      @media (min-width: 1920px) and (max-width: 3839.98px) {
+        height: 40px;
+        width: 40px;
+      }
+
+      /* Ultra-Wide and 4K Plus Devices (3840px and up) */
+      @media (min-width: 3840px) {
+        height: 55px;
+        width: 55px;
+      }
+    }
+
+    svg {
+      fill: $borderblue;
+      height: auto;
+      width: 31px;
+      position: relative;
+      z-index: 100;
+    }
+  }
+
+  .closeIcon {
+    svg {
+      fill: $white;
+    }
+  }
+
+  .sidebar-title {
+    font-size: 28px;
+    font-weight: 500;
+
+    @media (max-width: 1024px) {
+      font-size: 22px;
+    }
+  }
+}

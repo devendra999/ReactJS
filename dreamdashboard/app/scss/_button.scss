@@ -1,0 +1,148 @@
+.btn {
+  padding: .5rem 1.875rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  background: transparent linear-gradient(185deg, #2EA2DB 0%, #004CB0 100%) 0% 0% no-repeat padding-box;
+  color: $white;
+  border-radius: .25rem;
+  border: none;
+  transition: all .5s ease 0s; 
+  @extend .base-font-m;
+  text-transform: capitalize;
+
+  @media (max-width: 575.98px) {
+    padding: 8px 22px;
+  }
+
+  /* Small devices (phones, 576px and up) */
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    padding: 8px 30px;
+  }
+
+
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    padding: 8px 30px;
+  }
+
+    @media (min-width: 768px) and (max-width: 991.98px) and (orientation: landscape) {
+      padding: 8px 20px;
+    }
+
+    @media (min-width: 992px) and (max-width: 1199.98px) {
+      padding: 8px 22px;
+    }
+
+
+  &:hover,
+  &:focus {
+    opacity: .9;
+    background: transparent linear-gradient(185deg, #004CB0 0%, #2EA2DB 100%) 0% 0% no-repeat padding-box;
+    box-shadow: -1px 6px 10px 0 rgba(120, 60, 20, 0.2);
+  }
+
+  &.Mui-disabled {
+    color: $white;
+  }
+
+  // &.outlineBtn {
+  //   background: none;
+  //   box-shadow: none;
+  //   border-radius: 0.25rem;
+  //   border: 1px solid #3D3D3D;
+  //   color: #3D3D3D;
+  //   font-family: 'Poppins', sans-serif;
+  //   font-style: normal;
+  //   font-weight: 500;
+  //   line-height: 1.5rem;
+
+  //   // padding: 0.625rem 1.375rem 0.625rem 1.4375rem;
+  //   &:hover,
+  //   &:focus {
+  //     opacity: .9;
+  //     background: #3D3D3D;
+  //     color: $white;
+  //   }
+
+  //   &.outline-small-blue {
+  //     border: .0625rem solid $borderblue;
+  //     color: $borderblue;
+  //     // font-size: .75rem;
+  //     padding: .5625rem .9375rem;
+  //     margin: 0 auto;
+  //     line-height: 1.3;
+
+  //     &:hover,
+  //     &:focus {
+  //       opacity: .9;
+  //       background: $borderblue;
+  //       color: $white;
+  //     }
+  //   }
+
+  // }
+
+  &.containBtn {
+    // background: #0051CC;
+    // box-shadow: none;
+    // border-radius: 0.25rem;
+    // color: $white;
+    // // font-family: 'Poppins', sans-serif;
+    // font-style: normal;
+    // font-weight: 500;
+    // line-height: 1.5rem;
+
+    // // padding: 0.625rem 1.375rem 0.625rem 1.4375rem;
+    // &:hover,
+    // &:focus {
+    //   opacity: .9;
+    //   background: #0051CC;
+    //   color: $white;
+    // }
+
+    &.chart-see-more-btn {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      font-size: .625rem;
+      display: flex;
+      align-items: center;
+      padding: .125rem .625rem;
+      background: transparent linear-gradient(185deg, #2EA2DB 0%, #004CB0 100%) 0% 0% no-repeat padding-box;
+
+      &:hover,
+      &:focus {
+        background: transparent linear-gradient(185deg, #004CB0 0%, #2EA2DB 100%) 0% 0% no-repeat padding-box;
+      }
+
+      .MuiButton-startIcon {
+        margin-right: .25rem;
+
+        svg {
+          height: .9375rem;
+          width: .9375rem;
+        }
+      }
+    }
+  }
+
+  &.transparent {
+    background: transparent;
+    color: #3D3D3D;
+    border: 1px solid #3D3D3D;
+    &.w-80 {
+      padding-top: .4375rem !important;
+      padding-bottom: .4375rem !important;
+    }
+  }
+  &.w-80 {
+    padding-top: .5rem !important;
+    padding-bottom: .5rem !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 80px;
+    padding: 0;
+    text-align: center;
+  }
+}

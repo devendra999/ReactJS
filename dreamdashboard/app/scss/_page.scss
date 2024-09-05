@@ -1,0 +1,768 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0.375rem;
+  height: 0.375rem;
+}
+
+* {
+  scrollbar-width: thin !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $darkgrey;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $blue;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $blue;
+}
+
+.custom-scroll {
+  height: 100%;
+  right: 0;
+  position: absolute;
+
+  div {
+    background: #024fb2 !important;
+    width: 4px !important;
+  }
+}
+
+
+.login-page,
+.form-common-page {
+  //background: $lightskyblue;
+  //box-sizing: border-box;
+  //height: 100vh;
+  //height: 100dvh;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  @media (max-width: 1024px) {
+    padding: 1.875rem;
+  }
+
+  @media (max-width: 767px) {
+    padding: 0.9375rem;
+  }
+
+  @media screen and (orientation: landscape) and (min-device-width: 0) and (max-device-width: 851px) {
+    align-items: flex-start;
+    padding: 0.9375rem;
+    height: auto;
+  }
+
+  &:after {
+    content: "";
+    background: transparent url("/assets/images/car-bg.png");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    opacity: 0.2;
+    top: 0;
+    right: 0;
+    z-index: 0;
+  }
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: transparent url("/assets/images/pattern.png");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    right: 0;
+    top: 0;
+    position: absolute;
+    display: inline-block;
+    z-index: 0;
+    opacity: 0.8;
+  }
+
+  .bg-login-image {
+    position: relative;
+    padding-top: 2.5rem;
+    padding-bottom: 3.75rem;
+    padding-right: 5rem;
+    padding-left: 5rem;
+
+    @media (max-width: 1280px) {
+      padding-top: 2.1875rem;
+      padding-right: 3.75rem;
+      padding-bottom: 2.5rem;
+      padding-left: 2.5rem;
+    }
+
+    @media (max-width: 1024px) {
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: 0;
+      padding-top: 0;
+    }
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-image: url("/assets/images/behind-bg.png");
+      position: absolute;
+      right: 0;
+      background-size: cover;
+      top: 0;
+      z-index: 0;
+      max-width: 78%;
+      border-radius: 5%;
+      border-top-right-radius: 0;
+
+      @media (max-width: 1024px) {
+        display: none;
+      }
+    }
+  }
+
+  .container-login {
+    max-width: 75rem;
+    padding: 0.9375rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+
+    @media screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 851px) {
+      padding: 0;
+    }
+
+    @media (max-width: 1024px) {
+      padding: 0;
+    }
+
+    @media (max-width: 767px) {
+      padding: 0;
+    }
+
+    .login-inner-details {
+      box-shadow: 0.125rem 0.125rem 1.625rem #0000002b;
+      z-index: 11;
+      position: relative;
+    }
+  }
+
+  .car-behinds-bg {
+    @media (max-width: 1024px) {
+      min-height: 405px;
+      object-fit: contain;
+      background-position: left;
+      object-position: left;
+    }
+
+    @media (max-width: 575px) {
+      display: none;
+    }
+
+    img {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      top: 175px;
+      opacity: 0.8;
+    }
+  }
+
+  .bg-blue-login {
+    background: $blueshadelight;
+    padding: 3.125rem;
+    min-height: 38.25rem;
+    width: 100%;
+    height: 100%;
+
+    @media (max-width: 1280px) {
+      padding: 2.1875rem;
+    }
+
+    @media (max-width: 1024px) {
+      min-height: 34.5rem;
+    }
+
+    @media (max-width: 767px) {
+      min-height: unset;
+      padding: 0.9375rem;
+    }
+  }
+
+  .btn-blue-lg {
+    @media screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 851px) {
+      margin-bottom: 0;
+    }
+  }
+
+  .copy-note {
+    margin-top: 3.125rem;
+
+    @media (max-width: 767px) {
+      padding: 0.9375rem;
+      margin-top: 1.25rem;
+    }
+  }
+
+  .bg-white-login {
+    background: $white;
+    padding: 3.125rem;
+    position: relative;
+    height: 100%;
+    min-height: 38.25rem;
+
+    @media (max-width: 1280px) {
+      padding: 2.1875rem;
+    }
+
+    @media (max-width: 1024px) {
+      min-height: 34.5rem;
+    }
+
+    @media (max-width: 767px) {
+      min-height: unset;
+      padding: 0.9375rem;
+    }
+  }
+
+  .behind-bg {
+    position: absolute;
+    z-index: -999;
+    right: -80px;
+    top: -40px;
+    width: 893px;
+    height: 710px;
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  .welcome-login {
+    h4 {
+      @media screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 851px) {
+        font-size: 1.125rem;
+      }
+    }
+  }
+
+  .welcome-logins {
+    img {
+      min-width: 15rem;
+      margin-bottom: 10px;
+
+      @media only screen and (max-device-width: 991px) and (orientation: landscape) {
+        margin-top: 4rem;
+      }
+
+      @media (max-width: 991px) {
+        max-width: 200px;
+        min-width: auto;
+      }
+
+      @media (max-width: 767px) {
+        width: 8.75rem;
+        min-width: auto;
+      }
+    }
+
+    .box-input-items {
+      margin-bottom: 1.875rem;
+
+      .form-control {
+        margin-bottom: 1.5rem;
+      }
+
+      &.signup {
+
+      }
+    }
+  }
+
+  .forget-password-text {
+    margin-top: 3.125rem;
+    margin-bottom: 3.75rem;
+
+    .title-main {
+      padding-left: 0;
+      justify-content: center;
+
+      @media (max-width: 991px) {
+        font-size: 1.5rem;
+      }
+
+      @media (max-width: 767px) {
+        font-size: 1.25rem;
+      }
+    }
+
+    .sub-title {
+      font-size: 1rem;
+
+      @media (max-width: 767px) {
+        font-size: 0.875rem;
+      }
+    }
+  }
+}
+
+.MuiFormControlLabel-root {
+  .MuiCheckbox-root {
+    color: $black21;
+
+    svg {
+      color: rgba(0, 0, 0, 0.25);
+    }
+
+    &.Mui-checked {
+      svg {
+        color: $darkblue;
+      }
+    }
+  }
+
+  .MuiFormControlLabel-label {
+    color: $lightblack;
+    font-weight: 400;
+    @extend .base-font-m;
+  }
+}
+
+.border-bottom {
+  border-bottom: 1px solid $darkgrey;
+}
+
+/**End Login-one*/
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 575px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
+
+// modal data
+.data-content {
+  .card {
+    margin-top: 0;
+  }
+
+  tfoot {
+    .MuiTableCell-footer {
+      padding: 0;
+      border-bottom: none;
+
+      .css-12ovgqq-MuiInputBase-root-MuiTablePagination-select {
+        margin-right: 1rem !important;
+        margin-left: 0.25rem !important;
+        min-height: inherit !important;
+      }
+
+      .MuiTablePagination-actions {
+        margin-right: 0.625rem !important;
+      }
+    }
+  }
+}
+
+// Modal Grid Popup Data Start
+.modal {
+  &.data-modal {
+    overflow: hidden;
+
+    .modal-dialog {
+      @media (max-width: 1023px) {
+        height: calc(100vh - 2rem);
+        height: calc(100dvh - 2rem);
+
+      }
+
+      .modal-content {
+        .modal-body {
+          padding: 1rem;
+
+          .data-content {
+            background-color: $lightwhite;
+            border-radius: 1rem;
+            padding: 1rem 0;
+            height: 100%;
+
+            .data-content-in {
+              .MuiToolbar-root:not(.MuiTablePagination-toolbar) {
+                display: block;
+                width: 100%;
+                padding: 0;
+                min-height: 50px;
+
+                >div {
+                  display: block;
+                  width: 100%;
+                  padding: 0 1rem;
+                }
+              }
+
+              .modal-data-toptool {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+
+                button {
+                  margin-right: 1.25rem;
+                  color: $white;
+                }
+
+                .MuiFormControl-root {
+                  width: auto;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// data in page
+.data-page-layout {
+  .modal-data-toptool {
+    button {
+      margin-right: 1.25rem;
+      color: $white;
+    }
+
+    .MuiFormControl-root {
+      width: auto;
+    }
+  }
+
+  table {
+
+    th,
+    td {
+      white-space: nowrap;
+    }
+  }
+}
+
+// custom sorting icons using css start
+.data-modal {
+  th {
+    position: relative;
+
+    button {
+      text-align: left;
+    }
+
+    .MuiTableSortLabel-root {
+      min-width: 1.125rem;
+
+      svg {
+        opacity: 0 !important;
+        width: 0;
+      }
+
+      &::before,
+      &::after {
+        width: 0;
+        height: 0;
+        border: solid 0.25rem transparent;
+        cursor: pointer;
+        background: transparent;
+        content: "";
+        position: absolute;
+        opacity: 0.3;
+      }
+
+      &::before {
+        border-bottom: solid 0.375rem $grey100;
+        border-top-width: 0;
+        top: 0.25rem;
+        right: 0;
+      }
+
+      &::after {
+        border-top: solid 0.375rem $grey100;
+        border-bottom-width: 0;
+        margin-top: 0.0625rem;
+        top: 0.8rem;
+        right: 0;
+      }
+    }
+
+    &[aria-sort="ascending"] {
+      .MuiTableSortLabel-root {
+        &::before {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    &[aria-sort="descending"] {
+      .MuiTableSortLabel-root {
+        &::after {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
+
+// custom sorting icons using css end
+
+.modalgrid-popup-data {
+  background: none !important;
+  box-shadow: none !important;
+
+  .tss-1cdcmys-MUIDataTable-responsiveBase {
+    overflow-y: auto;
+    max-height: calc(100vh - 15rem);
+    max-height: calc(100dvh - 15rem);
+    display: inline-block;
+    width: 100%;
+    padding: 0 1rem;
+
+    @media (min-width: 3000px) {
+      max-height: calc(100vh - 16rem);
+      max-height: calc(100dvh - 16rem);
+
+    }
+
+    table:not(.tss-5jmwmz-MUIDataTableFooter-root) {
+      thead {
+        position: sticky;
+        top: -1px;
+        background: $lightwhite;
+        font-weight: 500;
+        text-transform: capitalize;
+        z-index: 1;
+
+        @media screen and (orientation: landscape) and (max-width: 991px) {
+          position: initial;
+        }
+
+        th {
+          padding: 0.625rem;
+          position: relative;
+
+          &::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 0.0875rem;
+            background: rgba(0, 0, 0, 0.3);
+            bottom: 0;
+            left: 0;
+          }
+        }
+      }
+    }
+  }
+
+  th,
+  button {
+    @extend .base-font-m;
+    line-height: normal;
+    font-weight: 500;
+    color: #92929d;
+  }
+
+  td {
+    padding: 7px;
+    @extend .base-font;
+    line-height: normal;
+    font-weight: 400;
+
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+  .search-box input {
+    border: 0.1rem solid $lightergrey;
+    border-radius: 0.1875rem;
+    padding: 0.3125rem;
+    background-color: transparent;
+    margin-left: auto;
+    width: 13.375rem;
+    @extend .base-font;
+    min-height: 22px;
+  }
+
+  .MuiTablePagination-selectLabel,
+  .MuiTablePagination-displayedRows {
+    @extend .base-font-m;
+  }
+}
+
+.min-w-\[110px\] {
+  >div {
+    min-width: 110px;
+  }
+}
+
+// Modal Grid Popup Data End
+
+// pagination start
+.custom-page-listing {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.625rem 1rem 0;
+  white-space: nowrap;
+  overflow-x: auto;
+
+  @media (max-width: 767px) {
+    padding: 0.5rem 0.5rem 0;
+  }
+
+  .pagelist {
+    display: flex;
+    align-items: center;
+
+    ul {
+      display: flex;
+      align-items: center;
+      margin: 0;
+
+      li {
+        &.active {
+          a {
+            border: 0.0625rem solid rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to bottom,
+                rgba(230, 230, 230, 0.1) 0%,
+                rgba(0, 0, 0, 0.1) 100%);
+            color: $black;
+          }
+
+          &:hover {
+            a {
+              border: 0.0625rem solid rgba(0, 0, 0, 0.3);
+              background: linear-gradient(to bottom,
+                  rgba(230, 230, 230, 0.1) 0%,
+                  rgba(0, 0, 0, 0.1) 100%);
+              color: $black;
+            }
+          }
+        }
+
+        &:hover {
+          a {
+            background: linear-gradient(to bottom,
+                rgb(88, 88, 88) 0%,
+                rgb(17, 17, 17) 100%);
+            color: $white;
+          }
+        }
+
+        a {
+          box-sizing: border-box;
+          display: inline-block;
+          min-width: 1.5625rem;
+          padding: 0.5rem 1rem;
+          margin-left: 0.125rem;
+          text-align: center;
+          text-decoration: none;
+          cursor: pointer;
+          color: inherit;
+          border: 0.0625rem solid transparent;
+          border-radius: 0.125rem;
+          background-color: transparent;
+
+          @media (max-width: 767px) {
+            font-size: 13px;
+            padding: 4px 8px;
+          }
+        }
+      }
+    }
+  }
+
+  .pagination-main-button {
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 1.5625rem;
+    padding: 0.5rem 1rem;
+    margin-left: 0.125rem;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+    border: 0.0625rem solid transparent;
+    border-radius: 0.125rem;
+    background-color: transparent;
+
+    @media (max-width: 767px) {
+      font-size: 13px;
+      padding: 4px 8px;
+    }
+
+    &:hover {
+      background: linear-gradient(to bottom,
+          rgb(88, 88, 88) 0%,
+          rgb(17, 17, 17) 100%);
+      color: $white;
+    }
+  }
+}
+
+// pagination end
+
+.custom-file {
+  .MuiInput-root {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    opacity: 0;
+  }
+
+  .MuiInput-input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 99;
+    opacity: 0;
+  }
+}
+
+.uploaded-files {
+  li {
+    @extend .base-font-m;
+
+    svg:not(.text-lightgreen) {
+      color: #f00;
+    }
+  }
+}
+
+ 

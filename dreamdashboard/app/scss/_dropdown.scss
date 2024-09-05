@@ -1,0 +1,587 @@
+.wrapper-dropdown {
+  max-width: 13.4375rem;
+
+  .custom-dropdown {
+    background-color: $lightgrey;
+    padding: 0.3125rem 0;
+    max-width: 13.4375rem;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: none;
+    border: 1px solid $lightgrey-100;
+    white-space: nowrap;
+
+    button {
+      color: $black;
+      border-right: none !important;
+
+      &:hover {
+        background-color: transparent;
+      }
+
+      &:last-child {
+        padding-left: 0;
+      }
+    }
+
+    + div {
+      transform: translate(0, 3.0625rem) !important;
+      width: 100%;
+      z-index: 1;
+
+      ul {
+        li {
+          &.Mui-selected {
+            background-color: $lightwhite-600;
+            color: $blue500;
+          }
+
+          &:hover {
+            background-color: $lightwhite-600;
+          }
+
+          font-size: 0.875rem;
+        }
+      }
+
+      div {
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+.boxContainer {
+  border-radius: 0.875rem;
+  background: $white;
+  box-shadow: 0px 2px 24px 0px rgba(0, 0, 0, 0.1);
+  padding: 1.25rem;
+  position: relative;
+
+  .gridRightSpacing {
+    padding-right: 2.5rem;
+  }
+
+  .addIcon {
+    position: absolute;
+    right: 1.5rem;
+    top: 2.5rem;
+    color: #0051cc;
+    cursor: pointer;
+  }
+}
+
+.form-custom-label {
+  @extend .base-font-m;
+}
+
+.dropdownComponent {
+  width: 100%;
+
+  .MuiInputBase-formControl {
+    border-radius: 8px;
+    background: $white;
+    box-shadow: 0px 2px 24px 0px rgba(0, 0, 0, 0.1);
+    height: 48px;
+    padding: 0;
+    @extend .base-font-m;
+
+    @media (min-width: 3840px) {
+      height: 65px;
+    }
+
+
+    input {
+      padding: 14px;
+      @extend .base-font-m;
+
+      @media (min-width: 3840px) {
+        padding: 18px !important;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
+
+.form-control {
+  .dropdowncomponent-fc {
+    .MuiInputBase-formControl {
+      border-radius: 8px;
+      height: 48px;
+      padding: 0;
+      @extend .base-font-m;
+  
+      @media (min-width: 3840px) {
+        height: 65px;
+      }
+  
+  
+      input {
+        padding: 14px;
+        @extend .base-font-m;
+  
+        @media (min-width: 3840px) {
+          padding: 18px !important;
+          box-sizing: border-box;
+        }
+      }
+    }
+  }
+}
+
+.dropdownInsideFont {
+  color: #3d3d3d;
+  @extend .base-font-m;
+  font-style: normal; 
+  line-height: normal;
+}
+
+.wrapperRightPadding {
+  padding-right: 2rem;
+
+  @media (max-width: 1024px) {
+    padding-right: 0.9375rem;
+  }
+}
+
+.MuiPopover-paper {
+  border-radius: 0.875rem;
+}
+
+.queryBuilder {
+  margin-top: 20px;
+
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+  -webkit-animation-duration: 600ms;
+  animation-duration: 600ms;  
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+
+
+  .ruleGroup {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 1rem;
+    background: transparent;
+    border-width: 0;
+    padding: 0;
+    position: relative;
+
+    @media (max-width: 768px) {
+      gap: 0;
+    }
+
+    .ruleGroup-header {
+      margin-left: auto;
+      margin-bottom: 0.7rem;
+      margin-top: auto;
+
+      .ruleGroup-addRule {
+        display: none;
+        text-indent: -9999px;
+        line-height: 0;
+
+        &:after {
+          content: "+";
+          text-indent: 0;
+          display: block;
+          line-height: initial;
+          color: #0051cc;
+          font-size: 30px;
+          font-weight: 500;
+          font-family: "Poppins", sans-serif;
+        }
+      }
+
+      .ruleGroup-addGroup {
+        text-indent: -9999px;
+        line-height: 0;
+        background: transparent linear-gradient(185deg, #2EA2DB 0%, #004CB0 100%) 0% 0% no-repeat padding-box;
+        background-color: #0051cc;
+        box-shadow: none;
+        border-radius: 0.25rem; 
+        color: $white;
+        display: block;
+
+        &:hover,
+        &:focus {
+          opacity: 0.9;
+          background: transparent linear-gradient(185deg, #004CB0 0%, #2EA2DB 100%) 0% 0% no-repeat padding-box;
+          box-shadow: -1px 6px 10px 0 rgba(120, 60, 20, 0.2);
+        }
+
+        
+
+        &:after {
+          content: "Add";
+          text-indent: 0;
+          display: block;
+          // line-height: initial;
+          color: $white;
+          font-family: "Poppins", sans-serif;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 1.5rem;
+          padding: .5rem 1.875rem;
+          @extend .base-font-m;
+
+          @media (max-width: 768px) {
+            padding: 0;
+          }
+        }
+
+        @media (max-width: 768px) {
+          // position: fixed;
+          // z-index: 1;
+          // left: 5%;
+          // right: 5%;
+          // bottom: 4rem;
+          // width: 90%;
+          margin-left: 10px;
+          padding: 10px 14px;
+        }
+      }
+    }
+
+    .ruleGroup-body {
+      width: 100%;
+
+      .rule {
+        width: inherit;
+        gap: 1rem;
+
+        -webkit-animation-name: fadeIn;
+        animation-name: fadeIn;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;  
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+
+
+        @media (max-width: 768px) {
+          display: grid;
+        }
+
+        .rule-fields,
+        .rule-operators,
+        .ruleGroup-combinators,
+        .rule-valueSource,
+        .rule-value {
+          border-radius: 0.875rem;
+          background: $white;
+          box-shadow: 0px 2px 24px 0px rgba(0, 0, 0, 0.1);
+          color: #3d3d3d;
+          height: 48px;
+          padding: 12px;
+          border: 1px solid rgba(0, 0, 0, 0.23);
+          width: inherit;
+          @extend .base-font-m;
+
+          option {
+            line-height: 50px;
+
+            &:focus {
+              background: #f3f6ff;
+              color: #0051cc;
+            }
+
+            &:hover,
+            &:checked {
+              background: #f3f6ff;
+              color: #0051cc;
+            }
+          }
+        }
+
+        input {
+          border-radius: 0.875rem;
+          background: $white;
+          box-shadow: 0px 2px 24px 0px rgba(0, 0, 0, 0.1);
+          color: #3d3d3d;
+          height: 48px;
+          padding: 1rem;
+          border: 1px solid rgba(0, 0, 0, 0.23);
+          width: inherit;
+
+          &::placeholder {
+            @extend .base-font-m;
+          }
+        }
+
+        .queryBuilder-dragHandle {
+          font-weight: 600;
+          color: #3d3d3d;
+          font-size: 20px;
+        }
+
+        .rule-remove {
+          text-indent: -9999px;
+          line-height: 0;
+
+          &:after {
+            content: "-";
+            text-indent: 0;
+            display: block;
+            line-height: initial;
+            color: #383838;
+            font-size: 30px;
+            font-weight: 500;
+            font-family: "Poppins", sans-serif;
+          }
+        }
+      }
+
+      .ruleGroup {
+        display: flex;
+        // flex-direction: column;
+        flex-direction: row-reverse;
+        gap: 1rem;
+        border-color: transparent;
+        border-style: solid;
+        border-width: 0;
+        border-radius: 0.875rem;
+        background: $white;
+        box-shadow: 0px 2px 24px 0px rgba(0, 0, 0, 0.1);
+        padding: 12px;
+        position: relative;
+
+        &:first-child {
+          .ruleGroup-header {
+            .ruleGroup-remove {
+              visibility: hidden;
+            }
+          }
+
+          .ruleGroup-body {
+            .rule {
+              &:first-child {
+                .rule-remove {
+                  visibility: hidden;
+                }
+              }
+            }
+          }
+        }
+
+        .ruleGroup-header {
+          margin-left: auto;
+          margin-top: auto;
+          margin-bottom: auto;
+
+          .queryBuilder-dragHandle {
+            display: none;
+          }
+
+          .ruleGroup-addRule {
+            display: block;
+            text-indent: -9999px;
+            line-height: 0;
+
+            &:after {
+              content: "+";
+              text-indent: 0;
+              display: block;
+              line-height: initial;
+              color: #0051cc;
+              font-size: 30px;
+              font-weight: 500;
+              font-family: "Poppins", sans-serif;
+            }
+          }
+
+          .ruleGroup-addGroup {
+            display: none;
+          }
+
+          .ruleGroup-remove {
+            text-indent: -9999px;
+            line-height: 0;
+
+            &:after {
+              content: "\2716";
+              text-indent: 0;
+              line-height: initial;
+              color: $white;
+              font-weight: 500;
+              font-family: "Poppins", sans-serif;
+              box-shadow: 0px 2px 24px 0px rgba(0, 0, 0, 0.1);
+              padding: 0.25rem;
+              width: 24px;
+              height: 24px;
+              border-top-right-radius: 0.875rem;
+              position: absolute;
+              top: 0;
+              right: 0;
+              background: #0051cc;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+          }
+        }
+
+        .ruleGroup-body {
+          width: 100%;
+
+          .betweenRules {
+            margin: 0 1.75rem;
+
+            @media (max-width: 768px) {
+              margin: 0 auto 0.5rem;
+              min-width: 100%;
+            }
+
+            .ruleGroup-combinators {
+              @media (max-width: 768px) {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .betweenRules {
+      -webkit-animation-name: fadeIn;
+      animation-name: fadeIn;
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;  
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+
+      .ruleGroup-combinators {
+        border-radius: 0.875rem;
+        background: $white;
+        box-shadow: 0px 2px 24px 0px rgba(0, 0, 0, 0.1);
+        color: #3d3d3d;
+        height: 48px;
+        padding: 12px;
+        border: 1px solid rgba(0, 0, 0, 0.23);
+        @extend .base-font-m;
+
+        @media (max-width: 768px) {
+          margin: 0 auto;
+          min-width: 100%;
+        }
+
+        .ruleGroup-combinators {
+          @media (max-width: 768px) {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+// create user page start
+.card-fields {
+  padding: 30px 40px;
+
+  @media (max-width: 1199px) {
+    padding: 30px;
+  }
+
+  @media (max-width: 767px) {
+    padding: 20px;
+  }
+
+  @media (max-width: 575px) {
+    padding: 15px;
+  }
+
+  .custom-select-item {
+    min-height: 48px;
+    .MuiSelect-select  {
+      max-height: 5.5rem;
+      overflow-y: auto;
+      overflow-x: hidden;
+      text-overflow: ellipsis;
+      padding: 14px 30px 14px 14px;
+      @extend .base-font-m;
+    }
+  
+    em {
+      font-style: normal;
+    }
+  }
+
+
+
+  .user-form-in {
+    max-width: 100%;
+
+    >.MuiGrid-container {
+      >.MuiGrid-item {
+        -webkit-animation-name: fadeInDown;
+        animation-name: fadeInDown;
+        -webkit-animation-duration: 600ms;
+        animation-duration: 600ms;  
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+      }
+    }
+  }
+
+  p.MuiTypography-body1,
+  p.MuiFormHelperText-root.Mui-error  {
+    @extend .base-font;
+    margin-left: 0;
+    font-weight: 400;
+  }
+}
+
+.label-form-input {
+  .dropdownComponent {
+    flex-direction: column !important;
+  }
+}
+
+.scroll-content-item-center {
+  max-height: calc(100vh - 13rem);
+
+  &.h-100vh {
+    height: 100vh;
+
+    @media screen and (orientation: landscape) and (max-device-width: 991px) {
+      height: auto;
+      max-height: 100%;
+    }
+  }
+}
+
+// .scroll-content-item {
+//   max-height: calc(100vh - 13rem);
+
+//   &.h-100vh {
+//     height: 100vh;
+//   }
+
+//   @media (max-width: 1024px) {
+//     max-height: calc(100vh - 11rem);
+//   }
+
+//   @media (max-width: 991px) {
+//     max-height: calc(100vh - 10.5rem);
+//   }
+
+//   @media (max-width: 767px) {
+//     max-height: calc(100vh - 11rem);
+//   }
+
+//   @media screen and (orientation: landscape) and (max-device-width: 896px) {
+//     max-height: calc(100vh - 10rem);
+//   }
+// }
+
+// create user page end
+
+
+.sm-checkbox-list {
+  padding-left: .25rem;
+  .MuiCheckbox-root {
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+  }
+}

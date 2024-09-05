@@ -1,0 +1,831 @@
+// modal custom css
+.modal {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 991px) {
+    align-items: flex-start;
+  }
+
+  &.fullyDataChart {
+    .modal-dialog {
+      max-width: calc(100% - 2rem);
+      height: calc(100vh - 2rem);
+      height: calc(100dvh - 2rem);
+      width: 100%;
+      outline: none;
+
+      @media screen and (orientation: landscape) and (max-device-width: 991px) {
+        min-height: calc(100vh - 2rem);
+        min-height: calc(100dvh - 2rem);
+        height: auto;
+      }
+    }
+    .apexcharts-legend-text {
+      font-size: 14px !important;
+      @media (max-width: 1024px) {
+        font-size: 14px !important;
+      }
+      @media (max-width: 767px) {
+        font-size: 18px !important;
+      }
+      @media (max-width: 540px) {
+        font-size: 14px !important;
+      }
+    }
+  }
+
+  .modal-dialog {
+    max-width: calc(100% - 2rem);
+    height: calc(100vh - 2rem);
+    height: calc(100dvh - 2rem);
+    width: 100%;
+    outline: none;
+
+    @media (max-width: 1023px) {
+      height: auto;
+    }
+
+    .modal-content {
+      .modal-close-button {
+        font-size: 1rem;
+        cursor: pointer;
+        background: $white 0% 0% no-repeat padding-box;
+        border: 0.125rem solid $red;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        width: 1.875rem;
+        height: 1.875rem;
+        min-width: 1.875rem;
+        justify-content: center;
+        opacity: 1;
+        color: $red;
+        transition: all 0.5s ease 0s;
+
+        &:hover {
+          opacity: 0.6;
+        }
+
+        svg {
+          height: 1.25rem;
+          width: 1.25rem;
+        }
+      }
+
+      .modal-header {
+        border-bottom: 0.0625rem solid $titleborder;
+
+        h2 {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          color: $darkblack1;
+          @extend .base-title-font;
+          font-weight: 600;
+          margin-bottom: 0;
+          line-height: 1.5;
+        }
+      }
+
+      .modal-body {
+        padding: 0 1rem 1rem;
+        height: calc(100% - 3rem);
+      }
+
+      .card {
+        padding: 10px;
+
+        .card-title {
+          letter-spacing: 0;
+          @extend .base-title-font;
+        }
+
+        .apexcharts-title-text {
+          @extend .base-title-font;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  &.modal-small {
+    align-items: center;
+
+    .modal-dialog {
+      max-width: 37.625rem;
+      height: auto;
+
+
+      @media (max-width: 991px) {
+        max-width: calc(100% - 2rem);
+        margin-top: auto;
+        margin-bottom: auto;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    
+      }
+
+      .modal-content {
+        border-radius: 1.25rem;
+      }
+
+      .modal-header {
+        display: none;
+      }
+
+      .modal-body {
+        padding: 1.625rem 2.1875rem;
+
+        @media (max-width: 767px) {
+          padding: 1.375rem 1rem;
+        }
+
+        .title-main {
+          margin-bottom: 22px;
+          padding-left: 0;
+
+          @media (max-width: 1199px) {
+            padding-left: 0;
+            margin-bottom: 16px;
+          }
+          @media (max-width: 767px) {
+            padding-left: 0;
+            margin-bottom: 16px;
+          }
+        }
+
+        .form-control {
+          margin-bottom: 1.25rem;
+        }
+
+        .drag-box-content {
+          padding: 1.5rem 1.125rem 1.125rem;
+
+          @media screen and (orientation: landscape) and (max-device-width: 991px) {
+            padding: 1rem;
+          }
+
+          .file-note {
+            color: rgba(0, 0, 0, 0.4);
+          }
+
+          .icon-upload {
+            svg,
+            img {
+              font-size: 5rem;
+              color: rgba(0, 0, 0, 0.4);
+              min-width: 5rem;
+
+              @media screen and (orientation: landscape) and (max-device-width: 991px) {
+                max-width: 3rem;
+              }
+            }
+          }
+        }
+
+        .button-group-data {
+          margin-top: 2.6875rem;
+
+          @media (max-width: 767px) {
+            margin-top: 1rem;
+          }
+        }
+      }
+    }
+
+    &.table-modal-small {
+      .modal-dialog {
+        max-width: 26.75rem;
+
+        @media (max-width: 991px) {
+          max-width: calc(100% - 2rem);
+        }
+
+        .modal-content {
+          align-items: flex-start;
+
+          .modal-body {
+            padding: 0 0 1.625rem;
+            width: 100%;
+
+            .simple-table {
+              min-width: 100%;
+              border-left: none;
+              border-right: none;
+              border-top: none;
+
+              th {
+                border: none;
+              }
+
+              td {
+                &:last-child {
+                  border-right: none;
+                }
+              }
+
+              tbody {
+                .itembg-cream {
+                  background: $lightwhite-600;
+                }
+              }
+            }
+
+            .MuiTableContainer-root {
+              box-shadow: none;
+              background-color: transparent;
+              border-bottom-left-radius: 0;
+              border-bottom-right-radius: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// chart view custom css
+.modal {
+  &.modal-grid-items {
+    .modal-dialog {
+      @media (max-width: 767px) {
+        max-width: calc(100% - 0.5rem);
+      }
+
+      .modal-header {
+        .compareColumn {
+          .select-option {
+            display: none;
+          }
+
+          .filter-area {
+            .all-icons {
+              .switch-small-item {
+                display: none;
+              }
+
+              .compareDiv {
+                .share-email {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .modal-content {
+        .modal-body {
+          height: calc(100% - 4rem);
+          padding: 0 8px 8px;
+          min-height: calc(100vh - 94px);
+          min-height: calc(100dvh - 94px);
+
+
+          @media (max-width: 767px) {
+            padding: 0 0.5rem 0.5rem;
+            min-height: calc(100vh - 125px);
+            min-height: calc(100dvh - 125px);
+
+          }
+          @media screen and (orientation: landscape) and (max-width: 991px) {
+            min-height: calc(100vh - 89px);
+            min-height: calc(100dvh - 89px);
+
+          }
+        }
+      }
+    }
+  }
+
+  .chartcardview {
+    height: 100%;
+    margin-top: 0;
+    overflow-x: auto;
+
+    .left-grid {
+      height: 100%;
+
+      .left-in-grid {
+        height: 50%;
+        max-height: 50%;
+
+        > .MuiGrid-item {
+          height: 100%;
+
+          @media (max-width: 991px) {
+            height: auto;
+          }
+        }
+
+        &.two-item {
+          margin-top: 0;
+        }
+      }
+    }
+
+    .right-grid {
+      height: 100%;
+
+      &.fully {
+        @media (max-width: 991px) {
+          height: 97%;
+        }
+      }
+
+      @media (max-width: 991px) {
+        height: auto;
+      }
+    }
+
+    .chartcard {
+      height: 50%;
+      height: 100%;
+      min-height: 50%;
+
+      .card {
+        margin-top: 0;
+        height: 100%;
+
+        @media (max-width: 991px) {
+          min-height: 32vh;
+        }
+
+        .card-body {
+          height: 100%;
+
+          > div {
+            height: 100%;
+          }
+        }
+      }
+
+      .norecordbody {
+        text-align: center;
+        vertical-align: middle;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: calc(100% - 1.26rem);
+
+        img {
+          @media (max-width: 1280px) {
+            width: 80%;
+          }
+          @media (max-width: 820px) {
+            width: 60%;
+          }
+        }
+      }
+      .month-wise {
+        img {
+          @media (max-width: 1280px) {
+            width: 38%;
+          }
+          @media (max-width: 912px) {
+            width: 80%;
+          }
+          @media (max-width: 820px) {
+            width: 60%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .chartcard-overflow {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .chartcard-overflow #chartMonth {
+    width: 800px !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .chartcard-overflow #chartSalesConsultants {
+    height: 62.5rem !important;
+    max-height: 25rem;
+  }
+
+  #chartLocation {
+    height: 31.25rem !important;
+    min-height: 12.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .chartcard .card-body #chartSalesConsultants {
+    min-height: 68.5vh !important;
+  }
+
+  #chartLocation {
+    max-height: 33vh;
+    min-height: 33vh;
+  }
+}
+
+.chartcard .card-body #chartMonth,
+.chartcard .card-body #chartSalesConsultants,
+.chartcard .card-body #chartModel
+{
+  max-height: 100% !important;
+  min-height: 30vh !important;
+
+  @media (max-width: 767px) {
+    min-height: 21.875rem !important;
+  }
+
+  @media screen and (orientation: landscape) and (max-width: 991px) {
+    min-height: 21.875rem !important;
+  }
+}
+.vahanBox #chartMonth
+{
+  max-height: 100% !important;
+  min-height: 26vh !important;
+
+  @media (max-width: 767px) {
+    min-height: 16.875rem !important;
+  }
+
+  @media screen and (orientation: landscape) and (max-width: 991px) {
+    min-height: 16.875rem !important;
+  }
+}
+
+.rotate-icon-top {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .chartcard .card-body #chartLocationn {
+    max-height: 100% !important;
+    min-height: 21.875rem !important;
+  }
+
+  .chartcard .card-body #chartConsultants {
+    max-height: 100% !important;
+    min-height: 43.75rem !important;
+  }
+}
+
+@media (max-width: 610px) {
+  .show-rotate-icon-responsive {
+    .rotate-icon-top {
+      display: block;
+      margin-right: 0.625rem;
+      margin-left: 0.9375rem;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(90deg);
+      }
+    }
+
+    .rotate-icon-top img {
+      animation: rotate 2s infinite;
+      min-height: 24px;
+      min-width: 24px;
+      max-width: 30px;
+      object-fit: contain;
+    }
+  }
+}
+
+.modal-wrap-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28.5rem;
+
+  @media (max-width: 767px) {
+    min-height: auto;
+  }
+
+  @media screen and (orientation: landscape) and (max-device-width: 991px) {
+    min-height: calc(100vh - 5rem);
+    min-height: calc(100dvh - 5rem);
+
+  }
+
+  .modal-main-data {
+    width: 100%;
+
+    hr {
+      &.MuiDivider-root {
+        display: none;
+      }
+    }
+  }
+
+  .modal-error {
+    text-align: center;
+
+    .modal-error-in {
+      hr {
+        display: none;
+      }
+    }
+
+    .icondata {
+      margin-bottom: 1.875rem;
+
+      @media (max-width: 767px) {
+        margin-bottom: 0.9375rem;
+      }
+
+      svg {
+        height: 8.375rem;
+        width: 8.375rem;
+
+        @media (max-width: 991px) {
+          height: 6.25rem;
+          width: 6.25rem;
+        }
+
+        @media screen and (orientation: landscape) and (max-device-width: 991px) {
+          height: 3.75rem;
+          width: 3.75rem;
+        }
+
+        @media (max-width: 767px) {
+          height: 3.75rem;
+          width: 3.75rem;
+        }
+      }
+    }
+
+    .title-main {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+    }
+
+    .note-description {
+      font-size: 1.125rem;
+
+      @media (max-width: 767px) {
+        font-size: 0.875rem;
+      }
+    }
+  }
+}
+
+.small-btn-iconpop {
+  display: flex;
+  align-items: center;
+  margin-right: 0.875rem;
+  margin-left: 0.875rem;
+  padding: 0.5rem 0.875rem;
+  line-height: 1.5;
+
+  @media (max-width: 767px) {
+    margin-left: 6px;
+    margin-right: 8px;
+  }
+}
+
+.modal-customitem {
+  .MuiDivider-fullWidth {
+    display: none;
+  }
+
+  .title-main {
+    @media (max-width: 1199px) {
+      font-size: 1.875rem;
+    }
+
+    @media (max-width: 767px) {
+      font-size: 1.625rem;
+    }
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    max-width: 22.6875rem;
+
+    @media (max-width: 767px) {
+      font-size: 1rem;
+    }
+  }
+}
+
+.success-animation {
+  margin: 1.875rem auto;
+
+  @keyframes stroke {
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes scale {
+    0%,
+    100% {
+      transform: none;
+    }
+
+    50% {
+      transform: scale3d(1.1, 1.1, 1);
+    }
+  }
+
+  @keyframes fill {
+    100% {
+      box-shadow: inset 0px 0px 0px 1.875rem $greenlight;
+    }
+  }
+
+  .checkmark {
+    width: 6.25rem;
+    height: 6.25rem;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: $greenlight;
+    stroke-miterlimit: 10;
+    box-shadow: inset 0px 0px 0px $greenlight;
+    animation: fill 0.4s ease-in-out 0.4s forwards,
+      scale 0.3s ease-in-out 0.9s both;
+    position: relative;
+    top: 0.3125rem;
+    right: 0.3125rem;
+    margin: 0 auto;
+  }
+
+  .checkmark__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: $greenlight;
+    fill: $white;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+  }
+
+  .checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+  }
+}
+
+.modal-sheet-dump {
+  .modal-header {
+    >h2 {
+      width: calc(100% - 40px);
+      word-break: break-all;
+    }
+  }
+  .data-content-in {
+    .MuiPaper-root {
+      > .MuiToolbar-root {
+        display: none !important;
+      }
+    }
+  }
+}
+
+.title-switch {
+  display: flex;
+  align-items: center;
+  p {
+    @extend .base-font;
+  }
+}
+
+.chart-AI {
+  p {
+    @extend .base-font;
+  }
+
+  h3 {
+    @extend .base-title-font;
+  }
+}
+
+.modal-header-tab {
+
+  @media (max-width: 575px) {
+    padding-bottom: 0 !important;
+    align-items: center !important;
+    flex-direction: column-reverse;
+  }
+
+  .right-items {
+    padding-bottom: 10px !important;
+
+    @media (max-width: 575px) {
+      padding-bottom: 10px !important;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .filter-excel-button-mobile {
+      @media (max-width: 575px) {
+        position: relative !important;
+        margin-bottom: -10px;
+      }
+
+      .title-reverse-responsive {
+        @media (max-width: 575px) {
+          display: none !important;
+        }
+      }
+    }
+
+    .rotate-icon-top {
+      @media (max-width: 575px) {
+        position: absolute;
+        right: 50px;
+        top: 10px;
+      }
+    }
+
+    .all-icons {
+      @media (max-width: 575px) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .modal-tab-component {
+    @media (max-width: 575px) {
+      width: 100%;
+    }
+
+    .MuiTabs-root {
+      min-height: auto;
+
+      .MuiTabs-scroller {
+        .MuiButtonBase-root {
+          padding: 0.5rem 0.875rem;
+          min-height: auto;
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+          @extend .base-title-font;
+
+          @media (max-width: 767px) {
+            flex: unset;
+            padding: 6px 8px;
+          }
+
+          &.Mui-selected {
+            background: transparent
+              linear-gradient(185deg, #2ea2db 0%, #004cb0 100%) 0% 0% no-repeat
+              padding-box;
+          }
+        }
+      }
+    }
+
+    .MuiTabs-indicator {
+      opacity: 0;
+    }
+  }
+}
+
+.model-page {
+  .search-data {
+    top: 0.5rem;
+    @media (min-width: 1200px) and (max-width: 1366px) {
+      top: 0.8rem;
+    }
+    @media (max-width: 1024px) {
+      top: 0.3rem;
+    }
+    @media (max-width: 640px) {
+      top: 0;
+    }
+  }
+}
+
+.system-management-page {
+  .search-data {
+    top: 0.5rem;
+    @media (min-width: 1200px) and (max-width: 1366px) {
+      top: 0.8rem;
+    }
+    @media (max-width: 1024px) {
+      top: 0.3rem;
+    }
+    @media (max-width: 640px) {
+      top: -0.5rem;
+    }
+  }
+}

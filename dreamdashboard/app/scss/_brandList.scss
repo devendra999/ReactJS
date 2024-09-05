@@ -1,0 +1,19 @@
+.create-brand-modal {
+    position: relative;
+    background-color: $white;
+    border-radius: .875rem;
+    padding: 60px 50px;
+    max-width: 90%;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+.create-brand-modal .drag-box-content{
+    padding: 20px 60px;
+}
+.create-brand-modal .drag-box-content{
+text-align: center;
+}
+.create-brand-modal .drag-box-content .select-label{
+    padding-bottom: 12px;
+    display: inline-block;
+}
