@@ -1,227 +1,244 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
+
+interface CardType {
+  id: number;
+  title: string;
+}
+
+interface TaskType {
+  category: string;
+  cards: CardType[];
+}
+
+interface BoardItemProps {
+  board: TaskType;
+  editCard: (data: CardType, category: string) => void;
+}
+
+interface CardItemProps {
+  task: CardType;
+  editCard: (data: CardType, category: string) => void;
+  category: string;
+}
+
+interface CategoryProps {
+  category: string[];
+  handleTask: (data: { title: string; category: string }) => void;
+  isEdit: { title: string; category: string; oldCategory: string; id?: number | null };
+  editable: boolean;
+}
 
 export default function Home() {
-
-  const [tasks, setTasks] = useState([
+  const [task, setTask] = useState<TaskType[]>([
     {
-      id: 455,
       category: "todo",
       cards: [
-        {
-          id: 214,
-          title: "card 2",
-        },
-        {
-          id: 2145454,
-          title: "card 3",
-        },
+        { id: 454, title: "card 1" },
+        { id: 455454, title: "card 2" },
+        { id: 454878754, title: "card 3" },
       ],
     },
     {
-      id: 456,
       category: "progress",
       cards: [
-        {
-          id: 21,
-          title: "card 1",
-        },
+        { id: 455454545454, title: "card pro 2" },
+        { id: 4548765655458754, title: "card pro 3" },
       ],
     },
     {
-      id: 4568788,
       category: "completed",
-      cards: [
-        {
-          id: 454521,
-          title: "card sdfds 1",
-        },
-      ],
+      cards: [{ id: 4554546565545454, title: "card com 2" }],
     },
   ]);
-  const [isEdit, setIsEdit] = useState(false);
-  const [editData, seteditData] = useState(null);
 
-  const category = tasks.map((cat) => cat.category);
+  const [editable, setEditable] = useState(false);
+  const [isEdit, setIsEdit] = useState({
+    title: "",
+    category: "",
+    oldCategory: "",
+    id: null,
+  });
 
-  const addTask = (data, category: string, title: string) => {
-    if (isEdit) {
-      const updatedData = {
-        id: data?.id,
-        title,
-        category,
-      };
-      let tempTask = tasks.map((board) => {
-        // Check if the current board is the old category
-        if (board?.category === data?.category) {
-          return {
-            ...board,
-            cards: board.cards?.filter((card) => card?.id !== data?.id), // Remove the card from old category
-          };
-        }
-        // Check if the current board is the new category
-        if (board?.category === category) {
-          return {
-            ...board,
-            cards: [...board.cards, updatedData], // Add the card to new category
-          };
-        }
-        return board; // Return the original board if category doesn't match
-      });
+  const category: string[] = task.map((cat) => cat.category);
 
-      setTasks(tempTask);
-      setIsEdit(false);
-      seteditData(null);
-    } else {
-      let payload = {
-        id: new Date().getTime(),
-        ...data,
-      };
-
-      let newTasksks = tasks.map((e) => {
-        if (e.category === payload?.category) {
-          return {
-            ...e,
-            cards: [...e.cards, payload],
-          };
-        }
-        return e;
-      });
-      setTasks(newTasksks);
-    }
+  const editCard = (data: CardType, category: string) => {
+    const payload = {
+      id: data.id,
+      title: data.title,
+      oldCategory: category,
+      category,
+    };
+    setIsEdit(payload);
+    setEditable(true);
   };
 
-  const editTask = (card, bid) => {
-    let cardData;
+  const handleTask = (data: { title: string; category: string }) => {
+    if (editable) {
+      const payload = {
+        ...data,
+        id: isEdit?.id,
+      };
 
-    const board = tasks.find((e) => {
-      if (e.id === bid) {
-        return e;
-      }
-    });
+      const tempTask = task.map((board) => {
+        // Check if the board category matches the payload category
+        if (board.category === payload.category) {
+          // Check if there is a card with the same ID in the board's cards
+          const existingCard = board.cards.find(
+            (card) => card.id === payload.id
+          );
 
-    if (board) {
-      cardData = board.cards?.find((e) => e.id === card.id);
+          // If a matching card is found, update its title
+          if (existingCard) {
+            return {
+              ...board,
+              cards: board.cards.map((card) =>
+                card.id === payload.id
+                  ? { ...card, title: payload.title }
+                  : card
+              ),
+            };
+          }
+
+          // If no matching card is found, add the new card
+          return {
+            ...board,
+            cards: [...board.cards, payload], // Add the new card
+          };
+        }
+
+        // Check if the board category matches the old category (isEdit)
+        if (board.category === isEdit.oldCategory) {
+          return {
+            ...board,
+            // Filter out the old card by its ID
+            cards: board.cards.filter((card) => card.id !== isEdit.id),
+          };
+        }
+
+        // If neither condition is met, return the board unchanged
+        return board;
+      });
+
+      setTask(tempTask);
+      setIsEdit({ title: "", category: "", oldCategory: "", id: null });
+      setEditable(false);
+    } else {
+      const payload = {
+        ...data,
+        id: new Date().getTime(),
+      };
+
+      const tempTask = task.map((board) => {
+        if (board.category === data.category) {
+          return {
+            ...board,
+            cards: [...board.cards, payload],
+          };
+        }
+        return board;
+      });
+
+      setTask(tempTask);
     }
-
-    let alldata = {
-      category: board?.category,
-      ...cardData,
-    };
-
-    setIsEdit(true);
-    seteditData(alldata);
   };
 
   return (
-    <>
-      <div className="container">
-        <div className="new-task">
-          <AddNewTask
-            allcategory={category}
-            addTask={addTask}
-            isEdit={isEdit}
-            editData={editData}
-          />
-        </div>
-        <div className="main-bg">
-          {tasks.map((board, index) => (
-            <BoardItem key={index} board={board} editTask={editTask} />
-          ))}
-        </div>
+    <div className="container">
+      <h2>Trello Card</h2>
+      <TaskForm
+        category={category}
+        handleTask={handleTask}
+        isEdit={isEdit}
+        editable={editable}
+      />
+      <div className="parent-div">
+        {task.map((board, index) => (
+          <BoardItem key={index} board={board} editCard={editCard} />
+        ))}
       </div>
-    </>
+    </div>
   );
 }
 
-const BoardItem = (props) => {
+const BoardItem = (props: BoardItemProps) => {
   return (
-    <>
-      <div className="single-board">
-        <h4>{props?.board?.category}</h4>
-        {props?.board?.cards?.map((card, index) => (
-          <CardItem
-            key={index}
-            card={card}
-            editTask={props?.editTask}
-            bid={props?.board?.id}
-          />
-        ))}
-      </div>
-    </>
+    <div className="single-board">
+      <h5>{props.board.category}</h5>
+      {props.board.cards.map((task, index) => (
+        <CardItem
+          key={index}
+          task={task}
+          editCard={props.editCard}
+          category={props.board.category}
+        />
+      ))}
+    </div>
   );
 };
 
-const CardItem = (props) => {
+const CardItem = (props: CardItemProps) => {
   return (
-    <>
-      <div className="single-card">
-        <h4>{props?.card?.title}</h4>
-        <button onClick={() => props?.editTask(props?.card, props?.bid)}>
-          edit card
-        </button>
-      </div>
-    </>
+    <div className="single-card">
+      <h5>{props.task.title}</h5>
+      <button onClick={() => props.editCard(props.task, props.category)}>
+        Edit
+      </button>
+    </div>
   );
 };
 
-const AddNewTask = (props) => {
-  const [title, settitle] = useState("");
-  const [category, setcategory] = useState("");
-  
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (props?.isEdit) {
-      props?.addTask(props?.editData, category, title);
-      settitle("");
-      setcategory("");
-    } else {
-      const data = {
-        title,
-        category,
-      };
-      props?.addTask(data);
-      settitle("");
-      setcategory("");
-    }
-  };
+const TaskForm = (props: CategoryProps) => {
+  const [singleTask, setSingleTask] = useState({
+    title: "",
+    category: "",
+  });
 
   useEffect(() => {
-    if (props.editData) {
-      settitle(props.editData.title || "");
-      setcategory(props.editData.category || "");
-    }
-  }, [props.editData]);
+    setSingleTask({
+      title: props.isEdit.title,
+      category: props.isEdit.category,
+    });
+  }, [props.isEdit]);
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    props.handleTask(singleTask);
+    setSingleTask({ title: "", category: "" });
+  };
 
   return (
-    <>
+    <div className="form">
       <form onSubmit={handleSubmit}>
         <div>
           <input
             type="text"
-            value={title}
-            onChange={(e) => settitle(e.target.value)}
+            value={singleTask.title}
+            onChange={(e) =>
+              setSingleTask({ ...singleTask, title: e.target.value })
+            }
           />
         </div>
         <div>
           <select
-            value={category}
-            onChange={(e) => setcategory(e.target.value)}
+            value={singleTask.category}
+            onChange={(e) =>
+              setSingleTask({ ...singleTask, category: e.target.value })
+            }
           >
             <option>select category</option>
-            {props?.allcategory?.map((cat) => (
-              <option key={cat}>{cat}</option>
+            {props.category.map((cat, index) => (
+              <option value={cat} key={index}>
+                {cat}
+              </option>
             ))}
           </select>
         </div>
         <div>
-          <button type={"submit"}>
-            {props?.isEdit ? "edit task" : "add task"}
-          </button>
+          <button type="submit">{props.editable ? "Edit" : "Add"}</button>
         </div>
       </form>
-    </>
+    </div>
   );
 };
