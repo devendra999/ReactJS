@@ -1,0 +1,747 @@
+
+1. Testing Component Rendering This ensures that a React component renders without crashing.
+import { render } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+// Basic render test
+test('it should render MyComponent without crashing', () => {
+  render(<MyComponent />);
+});
+
+
+
+1. Testing Text Content This test checks whether a specific text content is rendered correctly.
+import { render } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('it should render the correct text content', () => {
+  const { getByText } = render(<MyComponent />);
+  // Look for a text content inside the component
+  expect(getByText('Hello World')).toBeInTheDocument();
+});
+
+
+
+1. Testing Button Click Verifying that the button click triggers the desired action (e.g., updating state).
+import { render, fireEvent } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('button click should trigger the handler', () => {
+  const { getByRole } = render(<MyComponent />);
+  const button = getByRole('button', { name: /click me/i });
+
+  fireEvent.click(button);
+  // Add your assertions to check the effect of the click, e.g., state change
+  expect(button).toHaveTextContent('Clicked');
+});
+
+
+
+1. Testing Props Verifying that the component properly accepts and renders props.
+import { render } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('it should render the passed prop correctly', () => {
+  const { getByText } = render(<MyComponent title="Test Title" />);
+  expect(getByText('Test Title')).toBeInTheDocument();
+});
+
+
+
+1. Testing Conditional Rendering This checks if elements conditionally render based on state or props.
+import { render } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('it should conditionally render content based on props', () => {
+  const { getByText, queryByText } = render(<MyComponent isVisible={true} />);
+
+  // Element should be visible when `isVisible` prop is true
+  expect(getByText('This is visible')).toBeInTheDocument();
+  
+  // Element should not be visible when `isVisible` prop is false
+  const { queryByText } = render(<MyComponent isVisible={false} />);
+  expect(queryByText('This is visible')).not.toBeInTheDocument();
+});
+
+
+
+1. Testing useEffect Verifying that side effects (like fetching data) are handled properly.
+import { render, screen } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('it should call useEffect on component mount', async () => {
+  render(<MyComponent />);
+  // Wait for the effect of useEffect (e.g., text or element)
+  expect(await screen.findByText('Data fetched')).toBeInTheDocument();
+});
+
+
+
+
+1. Testing Async Functions Handling asynchronous operations in a test.
+import { render, screen, waitFor } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('it should render fetched data after async call', async () => {
+  render(<MyComponent />);
+  
+  // Wait for the asynchronous data to load
+  await waitFor(() => screen.getByText('Fetched Data'));
+  
+  // Now the data should be rendered in the document
+  expect(screen.getByText('Fetched Data')).toBeInTheDocument();
+});
+
+
+
+
+1. Testing State Changes Verifying that component state changes are reflected in the UI.
+import { render, fireEvent } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('it should change state on input change', () => {
+  const { getByLabelText, getByText } = render(<MyComponent />);
+
+  const input = getByLabelText('Username');
+  fireEvent.change(input, { target: { value: 'new username' } });
+
+  expect(getByText('new username')).toBeInTheDocument();
+});
+
+
+
+
+1. Mocking Functions (Props/Handlers) This is used to check if the correct functions are called.
+import { render, fireEvent } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('should call mock function on button click', () => {
+  const mockFn = jest.fn();
+  
+  const { getByText } = render(<MyComponent onClick={mockFn} />);
+  const button = getByText('Click Me');
+  
+  fireEvent.click(button);
+  
+  expect(mockFn).toHaveBeenCalledTimes(1);
+});
+
+
+
+
+1. Snapshot Testing Capturing the component’s rendered output and comparing it to a snapshot.
+import { render } from '@testing-library/react';
+import MyComponent from './MyComponent';
+import { toMatchSnapshot } from 'jest-snapshot';
+
+test('it should match the snapshot', () => {
+  const { asFragment } = render(<MyComponent />);
+  expect(asFragment()).toMatchSnapshot();
+});
+
+
+// Midum level testing
+
+1. Testing Form Submission
+Ensuring that a form submission triggers the expected behavior (e.g., updating the state or calling a function).
+import { render, fireEvent } from '@testing-library/react';
+import MyFormComponent from './MyFormComponent';
+
+test('it should handle form submission correctly', () => {
+  const mockSubmit = jest.fn();
+  const { getByLabelText, getByText } = render(<MyFormComponent onSubmit={mockSubmit} />);
+
+  fireEvent.change(getByLabelText('Username'), { target: { value: 'testUser' } });
+  fireEvent.click(getByText('Submit'));
+
+  expect(mockSubmit).toHaveBeenCalledWith('testUser');
+});
+
+
+
+2. Testing Form Validation
+Ensuring that a form handles validation errors properly before submission.
+import { render, fireEvent } from '@testing-library/react';
+import MyFormComponent from './MyFormComponent';
+
+test('it should show an error message when the form is invalid', () => {
+  const { getByLabelText, getByText } = render(<MyFormComponent />);
+
+  fireEvent.click(getByText('Submit'));
+  expect(getByText('Username is required')).toBeInTheDocument();
+});
+
+
+
+3. Testing State Reset After Form Submit
+Checking if the state resets after a form submission, such as clearing the input field.
+import { render, fireEvent } from '@testing-library/react';
+import MyFormComponent from './MyFormComponent';
+
+test('it should reset form state after submission', () => {
+  const { getByLabelText, getByText } = render(<MyFormComponent />);
+  
+  fireEvent.change(getByLabelText('Username'), { target: { value: 'testUser' } });
+  fireEvent.click(getByText('Submit'));
+
+  // After submit, the input field should be empty
+  expect(getByLabelText('Username').value).toBe('');
+});
+
+
+
+4. Testing Component Updates After Props Change
+Ensuring that a component updates correctly when props change.
+
+import { render, rerender } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('it should update when props change', () => {
+  const { getByText, rerender } = render(<MyComponent title="Initial Title" />);
+
+  expect(getByText('Initial Title')).toBeInTheDocument();
+
+  // Rerender the component with new props
+  rerender(<MyComponent title="Updated Title" />);
+  
+  expect(getByText('Updated Title')).toBeInTheDocument();
+});
+
+
+
+5. Testing CSS Classes
+Verifying that elements receive the expected CSS classes after a certain event.
+
+import { render, fireEvent } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('it should add a class to the button after click', () => {
+  const { getByRole } = render(<MyComponent />);
+  const button = getByRole('button');
+  
+  fireEvent.click(button);
+  
+  expect(button).toHaveClass('clicked');
+});
+
+
+
+
+6. Testing Custom Hook
+If you're using custom hooks, you can test them by rendering a component that uses the hook.
+ 
+import { render } from '@testing-library/react';
+import useCustomHook from './useCustomHook';
+
+test('it should return the expected value from the custom hook', () => {
+  const TestComponent = () => {
+    const value = useCustomHook();
+    return <span>{value}</span>;
+  };
+
+  const { getByText } = render(<TestComponent />);
+  expect(getByText('hook value')).toBeInTheDocument();
+});
+
+
+
+
+
+7. Testing Error Boundaries
+Ensuring that an error boundary component catches errors in its child components.
+
+import { render } from '@testing-library/react';
+import ErrorBoundary from './ErrorBoundary';
+import ProblemComponent from './ProblemComponent';
+
+test('it should catch errors and display fallback UI', () => {
+  const { getByText } = render(
+    <ErrorBoundary>
+      <ProblemComponent />
+    </ErrorBoundary>
+  );
+
+  expect(getByText('Something went wrong!')).toBeInTheDocument();
+});
+
+
+
+
+
+
+8. Testing Context Consumption
+If your component uses React Context, verify that it correctly consumes context values.
+
+import { render } from '@testing-library/react';
+import { MyContext } from './MyContext';
+import MyComponent from './MyComponent';
+
+test('it should consume context value correctly', () => {
+  const contextValue = { user: 'testUser' };
+
+  const { getByText } = render(
+    <MyContext.Provider value={contextValue}>
+      <MyComponent />
+    </MyContext.Provider>
+  );
+
+  expect(getByText('testUser')).toBeInTheDocument();
+});
+
+
+
+
+9. Testing useRef
+Ensuring that useRef works as expected and interacts with the DOM.
+
+import { render, fireEvent } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('it should focus on input field when button is clicked', () => {
+  const { getByRole } = render(<MyComponent />);
+  const input = getByRole('textbox');
+  const button = getByRole('button');
+
+  fireEvent.click(button);
+
+  // Check if input is focused after button click
+  expect(input).toHaveFocus();
+});
+
+
+
+
+
+10. Testing React Router (Navigation)
+Verifying that navigation works correctly when using react-router.
+
+import { render, fireEvent } from '@testing-library/react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import MyComponent from './MyComponent';
+
+test('it should navigate to another page when the link is clicked', () => {
+  const { getByText } = render(
+    <Router>
+      <MyComponent />
+      <Route path="/next" render={() => <div>Next Page</div>} />
+    </Router>
+  );
+
+  fireEvent.click(getByText('Go to Next Page'));
+  
+  expect(getByText('Next Page')).toBeInTheDocument();
+});
+
+
+
+
+
+11. Testing useMemo
+Ensuring that values memoized by useMemo don’t recompute unnecessarily.
+
+import { render } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('it should not recompute value unnecessarily', () => {
+  const { getByText } = render(<MyComponent />);
+  
+  // The computed value should not change unless dependencies change
+  expect(getByText('Memoized Value')).toBeInTheDocument();
+});
+
+
+
+
+
+
+12. Testing useCallback
+Ensuring that the callback passed via useCallback is stable between renders.
+
+import { render, fireEvent } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('it should maintain the same callback function reference', () => {
+  const { getByText } = render(<MyComponent />);
+
+  const button = getByText('Trigger Callback');
+  fireEvent.click(button);
+  
+  expect(button).toHaveTextContent('Callback triggered');
+});
+
+
+
+
+
+13. Testing Scroll Event
+Ensuring that a scroll event is handled correctly in a component.
+
+import { render, fireEvent } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('it should trigger scroll event', () => {
+  const { getByTestId } = render(<MyComponent />);
+  
+  const div = getByTestId('scroll-container');
+  fireEvent.scroll(div, { target: { scrollY: 100 } });
+
+  // Check if scroll event caused expected behavior
+  expect(div).toHaveStyle('overflow-y: scroll');
+});
+
+
+
+
+
+
+
+
+14. Testing Keyboard Events
+Verifying that keyboard events are properly handled.
+
+import { render, fireEvent } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('it should respond to Enter key press', () => {
+  const { getByRole } = render(<MyComponent />);
+  const input = getByRole('textbox');
+
+  fireEvent.keyDown(input, { key: 'Enter' });
+  
+  expect(input).toHaveValue('Enter key pressed');
+});
+
+
+
+
+
+
+
+15. Testing Window Resize Event
+Ensuring that a window resize event triggers the expected behavior.
+
+import { render, fireEvent } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('it should handle window resize event', () => {
+  const { getByText } = render(<MyComponent />);
+  
+  // Simulate a window resize
+  fireEvent(window, new Event('resize'));
+  
+  // Check for UI updates after resize
+  expect(getByText('Window resized')).toBeInTheDocument();
+});
+
+
+
+
+// advanced level unit testing
+1. Testing Component with External API Call (Mocking API)
+Testing components that make API calls and ensuring they display the correct data.
+
+import { render, screen, waitFor } from '@testing-library/react';
+import MyComponent from './MyComponent';
+import axios from 'axios';
+jest.mock('axios');
+
+test('it should display data fetched from API', async () => {
+  // Mocking the API response
+  axios.get.mockResolvedValue({ data: { name: 'John Doe' } });
+
+  render(<MyComponent />);
+
+  // Wait for the component to fetch and display the data
+  await waitFor(() => screen.getByText('John Doe'));
+
+  expect(screen.getByText('John Doe')).toBeInTheDocument();
+});
+
+
+
+
+
+
+
+2. Testing Component with LocalStorage
+Ensuring that components interact with localStorage correctly.
+
+import { render, fireEvent } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('it should store and retrieve value from localStorage', () => {
+  // Mock localStorage
+  Storage.prototype.setItem = jest.fn();
+  Storage.prototype.getItem = jest.fn(() => 'storedValue');
+
+  const { getByText } = render(<MyComponent />);
+
+  fireEvent.click(getByText('Save Value'));
+
+  expect(localStorage.setItem).toHaveBeenCalledWith('myKey', 'myValue');
+  expect(localStorage.getItem).toHaveBeenCalledWith('myKey');
+});
+
+
+
+
+
+3. Testing Component with SessionStorage
+Testing interactions with sessionStorage.
+
+import { render, fireEvent } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('it should store and retrieve value from sessionStorage', () => {
+  // Mock sessionStorage
+  Storage.prototype.setItem = jest.fn();
+  Storage.prototype.getItem = jest.fn(() => 'sessionValue');
+
+  const { getByText } = render(<MyComponent />);
+
+  fireEvent.click(getByText('Save Session Value'));
+
+  expect(sessionStorage.setItem).toHaveBeenCalledWith('sessionKey', 'sessionValue');
+  expect(sessionStorage.getItem).toHaveBeenCalledWith('sessionKey');
+});
+
+
+
+
+
+4. Testing Component with Timer/Interval
+Testing components that interact with timers or intervals.
+
+import { render, screen } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+jest.useFakeTimers();
+
+test('it should update the state after setTimeout', () => {
+  render(<MyComponent />);
+
+  // Trigger the timeout logic in your component
+  jest.advanceTimersByTime(1000);
+
+  expect(screen.getByText('State Updated!')).toBeInTheDocument();
+});
+
+
+
+
+5. Testing Mouse Events (Hover, MouseEnter)
+Ensuring that mouse events like hover or mouse enter are handled properly.
+
+import { render, fireEvent } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('it should change style on mouse hover', () => {
+  const { getByText } = render(<MyComponent />);
+
+  const button = getByText('Hover Me');
+  fireEvent.mouseEnter(button);
+
+  expect(button).toHaveStyle('background-color: blue');
+});
+
+
+
+
+
+6. Testing Animation Events
+Verifying that CSS animations work as expected.
+
+import { render } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('it should trigger animation on render', () => {
+  const { getByText } = render(<MyComponent />);
+
+  const element = getByText('Animated Element');
+  expect(element).toHaveClass('fadeIn');
+});
+
+
+
+
+
+7. Testing CSS Media Queries
+Ensuring that a component adapts to different screen sizes by changing styles or layout.
+
+import { render } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('it should apply correct styles for small screens', () => {
+  // Mock the window.innerWidth
+  global.innerWidth = 500;
+  render(<MyComponent />);
+
+  const element = document.querySelector('.responsive-element');
+  expect(element).toHaveStyle('font-size: 12px');
+});
+
+
+
+
+
+8. Testing Mouse Drag Event
+Testing drag-and-drop functionality.
+
+import { render, fireEvent } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('it should allow dragging an element', () => {
+  const { getByTestId } = render(<MyComponent />);
+  const draggableElement = getByTestId('draggable');
+  
+  fireEvent.mouseDown(draggableElement, { clientX: 0, clientY: 0 });
+  fireEvent.mouseMove(draggableElement, { clientX: 100, clientY: 100 });
+  fireEvent.mouseUp(draggableElement);
+
+  expect(draggableElement).toHaveStyle('transform: translate(100px, 100px)');
+});
+
+
+
+
+
+9. Testing Custom Event Handlers
+Ensuring that custom events trigger the expected behavior.
+
+import { render, fireEvent } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('it should trigger a custom event handler', () => {
+  const handleCustomEvent = jest.fn();
+  const { getByText } = render(<MyComponent onCustomEvent={handleCustomEvent} />);
+
+  fireEvent.click(getByText('Trigger Custom Event'));
+
+  expect(handleCustomEvent).toHaveBeenCalled();
+});
+
+
+
+
+10. Testing Dynamic Component Loading (Code Splitting)
+Verifying that dynamically imported components load as expected.
+
+import { render, screen } from '@testing-library/react';
+import React, { Suspense } from 'react';
+
+const LazyComponent = React.lazy(() => import('./LazyComponent'));
+
+test('it should load the dynamically imported component', async () => {
+  render(
+    <Suspense fallback={<div>Loading...</div>}>
+      <LazyComponent />
+    </Suspense>
+  );
+
+  expect(await screen.findByText('Lazy Loaded Component')).toBeInTheDocument();
+});
+
+
+
+
+
+11. Testing Custom Modals
+Verifying that a modal opens and closes correctly.
+
+import { render, fireEvent } from '@testing-library/react';
+import MyModalComponent from './MyModalComponent';
+
+test('it should open and close modal', () => {
+  const { getByText, queryByText } = render(<MyModalComponent />);
+
+  // Open modal
+  fireEvent.click(getByText('Open Modal'));
+  expect(getByText('Modal Content')).toBeInTheDocument();
+
+  // Close modal
+  fireEvent.click(getByText('Close Modal'));
+  expect(queryByText('Modal Content')).not.toBeInTheDocument();
+});
+
+
+
+
+
+12. Testing Scrollable Container with Virtualized List
+Ensuring proper handling of virtualized lists or scrollable containers.
+
+import { render, fireEvent } from '@testing-library/react';
+import MyVirtualizedList from './MyVirtualizedList';
+
+test('it should scroll the virtualized list correctly', () => {
+  const { getByTestId } = render(<MyVirtualizedList />);
+  const listContainer = getByTestId('list-container');
+
+  // Simulate scrolling
+  fireEvent.scroll(listContainer, { target: { scrollY: 100 } });
+
+  expect(listContainer.scrollTop).toBeGreaterThan(0);
+});
+
+
+
+
+
+13. Testing Form Reset
+Verifying that a form resets its values when a reset button is clicked.
+
+import { render, fireEvent } from '@testing-library/react';
+import MyFormComponent from './MyFormComponent';
+
+test('it should reset form values on reset click', () => {
+  const { getByLabelText, getByText } = render(<MyFormComponent />);
+
+  fireEvent.change(getByLabelText('Username'), { target: { value: 'John Doe' } });
+  fireEvent.click(getByText('Reset'));
+
+  expect(getByLabelText('Username').value).toBe('');
+});
+
+
+
+
+14. Testing Component with Suspense (React Query)
+Ensuring React Query or other Suspense-based libraries work with the component.
+
+import { render, screen, waitFor } from '@testing-library/react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import MyComponent from './MyComponent';
+
+test('it should render data from React Query', async () => {
+  const queryClient = new QueryClient();
+  
+  render(
+    <QueryClientProvider client={queryClient}>
+      <MyComponent />
+    </QueryClientProvider>
+  );
+
+  await waitFor(() => screen.getByText('Fetched Data'));
+
+  expect(screen.getByText('Fetched Data')).toBeInTheDocument();
+});
+
+
+
+
+
+15. Testing Error Handling in Async Functions
+Verifying that errors are caught and handled appropriately in async functions.
+
+import { render, screen, waitFor } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('it should handle error when async function fails', async () => {
+  const mockFunction = jest.fn().mockRejectedValue(new Error('API failed'));
+  
+  render(<MyComponent fetchData={mockFunction} />);
+  
+  await waitFor(() => screen.getByText('Error fetching data'));
+
+  expect(screen.getByText('Error fetching data')).toBeInTheDocument();
+});
